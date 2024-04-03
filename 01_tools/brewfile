@@ -21,6 +21,7 @@ cask "spotify"
 cask "unnaturalscrollwheels"
 cask "rectangle"
 cask "maccy"
+cask "betterdisplay"
 
 cask "visual-studio-code"
 cask "jetbrains-toolbox"
