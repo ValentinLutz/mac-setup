@@ -28,8 +28,11 @@ cask "jetbrains-toolbox"
 
 brew "go"
 brew "mage"
+
 brew "rust"
+
 brew "python3"
+brew "pipx"
 
 tap "homebrew/cask-versions"
 cask "temurin11"

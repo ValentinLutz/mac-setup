@@ -31,3 +31,6 @@ export JAVA_HOME=$JAVA_21_HOME
 # Node configuration
 alias node18='export PATH="/opt/homebrew/opt/node@18/bin:$PATH"'
 alias node20='export PATH="/opt/homebrew/opt/node@20/bin:$PATH"'
+
+# Python configuration
+export PATH=$PATH:~/.local/bin
