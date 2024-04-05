@@ -1,6 +1,10 @@
 brew "wget"
 brew "jq"
 brew "htop"
+brew "coreutils"
+brew "grep"
+brew "gnu-sed"
+brew "gnu-tar"
 
 brew "awscli"
 brew "kubectl"

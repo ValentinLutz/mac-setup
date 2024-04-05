@@ -5,7 +5,7 @@ ZSH_THEME="robbyrussell"
 
 FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 
-plugins=(git)
+plugins=(git gnu-utils)
 
 source $ZSH/oh-my-zsh.sh
 
