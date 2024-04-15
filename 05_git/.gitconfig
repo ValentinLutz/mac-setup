@@ -3,5 +3,5 @@
     email = allround.email@gmail.com
 
 [core]
-    autocrlf = true
+    autocrlf = false
     # hooksPath = ~/.git/hooks
