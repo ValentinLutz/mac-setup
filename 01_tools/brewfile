@@ -15,6 +15,7 @@ brew "k6"
 brew "opentofu"
 brew "terraform"
 brew "terragrunt"
+brew "cdktf"
 brew "ansible"
 
 cask "dbeaver-community"
