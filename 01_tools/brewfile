@@ -1,3 +1,4 @@
+brew "bash"
 brew "wget"
 brew "jq"
 brew "htop"
