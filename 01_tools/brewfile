@@ -18,6 +18,7 @@ brew "terraform"
 brew "terragrunt"
 brew "cdktf"
 brew "ansible"
+brew "cmctl"
 
 cask "dbeaver-community"
 cask "firefox"
