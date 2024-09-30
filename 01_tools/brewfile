@@ -28,7 +28,6 @@ cask "insomnia"
 cask "keepassxc"
 cask "spotify"
 cask "unnaturalscrollwheels"
-cask "rectangle"
 cask "maccy"
 cask "betterdisplay"
 
