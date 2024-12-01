@@ -20,6 +20,8 @@ brew "terragrunt"
 brew "cdktf"
 brew "ansible"
 brew "cmctl"
+brew "helm"
+brew "kind"
 
 cask "dbeaver-community"
 cask "firefox"
