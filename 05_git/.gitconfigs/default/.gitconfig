@@ -1,0 +1,7 @@
+[user]
+    name = ValentinLutz
+    email = allround.email@gmail.com
+
+[core]
+    autocrlf = false
+    hooksPath = ~/.gitconfigs/default/hooks

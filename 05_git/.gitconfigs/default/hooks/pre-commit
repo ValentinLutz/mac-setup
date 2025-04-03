@@ -1,0 +1,23 @@
+#!/bin/sh
+
+# Regex pattern for Conventional Commits
+conventional_commit_regex="^(build|chore|ci|docs|feat|fix|perf|refactor|revert|style|test)(\([a-z]+\))?:\s.+$"
+
+commit_message=$(cat "$1")
+
+if ! echo "$commit_message" | grep -qE "$conventional_commit_regex"; then
+  echo "Error: Commit message does not follow Conventional Commits format."
+  echo "Examples: "
+  echo "  build: changes to build process"
+  echo "  chore: maintenance tasks"
+  echo "  ci: changes to CI configuration"
+  echo "  docs: update documentation"
+  echo "  feat: add new feature"
+  echo "  fix: fix a bug"
+  echo "  perf: improve performance"
+  echo "  refactor: refactor code"
+  echo "  revert: revert a previous commit"
+  echo "  style: improve code style"
+  echo "  test: add or update tests"
+  exit 1
+fi

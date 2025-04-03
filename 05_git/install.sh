@@ -12,3 +12,15 @@ cp "${git_config_file}" "${git_backup_file}"
 
 echo "Updating git config ${git_config_file}"
 cp ./.gitconfig "${git_config_file}"
+
+
+# Update git configs
+git_configs_folder=~/.gitconfigs
+git_configs_backup_folder=./${timestamp}.gitconfigs.backup
+mkdir -p ${git_configs_folder}
+
+echo "Creating backup of ${git_configs_folder} to ${git_configs_backup_folder}"
+cp -rp "${git_configs_folder}" "${git_configs_backup_folder}"
+
+echo "Updating default git config ${git_configs_folder}"
+cp -rp ./.gitconfigs/ "${git_configs_folder}"
