@@ -22,5 +22,8 @@ mkdir -p ${git_configs_folder}
 echo "Creating backup of ${git_configs_folder} to ${git_configs_backup_folder}"
 cp -rp "${git_configs_folder}" "${git_configs_backup_folder}"
 
+echo "Deleting old git configs"
+rm -rf "${git_configs_folder}"/*
+
 echo "Updating default git config ${git_configs_folder}"
 cp -rp ./.gitconfigs/ "${git_configs_folder}"

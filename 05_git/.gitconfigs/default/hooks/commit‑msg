@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Regex pattern for Conventional Commits
-conventional_commit_regex="^(build|chore|ci|docs|feat|fix|perf|refactor|revert|style|test)(\([a-z]+\))?:\s.+$"
+conventional_commit_regex="^(build|chore|ci|docs|feat|fix|perf|refactor|revert|style|test)(\([a-zA-Z0-9\-]+\))?:\s.+$"
 
 commit_message=$(cat "$1")
 
