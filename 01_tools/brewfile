@@ -32,6 +32,8 @@ cask "spotify"
 cask "unnaturalscrollwheels"
 cask "maccy"
 cask "betterdisplay"
+cask "cursor"
+cask "session-manager-plugin"
 
 cask "visual-studio-code"
 cask "jetbrains-toolbox"
