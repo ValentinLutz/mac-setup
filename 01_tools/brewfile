@@ -23,6 +23,7 @@ brew "cmctl"
 brew "helm"
 brew "kind"
 brew "opencode"
+brew "ollama"
 
 cask "claude-code"
 cask "dbeaver-community"
