@@ -6,6 +6,7 @@ brew "coreutils"
 brew "grep"
 brew "gnu-sed"
 brew "gnu-tar"
+brew "yq"
 
 brew "awscli"
 brew "kubectl"
