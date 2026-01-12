@@ -13,22 +13,22 @@ help:
 	@echo "  agents   Install Claude agent instructions"
 
 tools:
-	cd 01_tools && bash install.sh
+	bash 01_tools/install.sh
 
 iterm2:
-	cd 02_iterm2 && bash install.sh
+	bash 02_iterm2/install.sh
 
 zsh:
-	cd 03_zsh && bash install.sh
+	bash 03_zsh/install.sh
 
 docker:
-	cd 04_docker && bash install.sh
+	bash 04_docker/install.sh
 
 git:
-	cd 05_git && bash install.sh
+	bash 05_git/install.sh
 
 ssh:
-	cd 06_ssh && bash install.sh
+	bash 06_ssh/install.sh
 
 agents:
-	cd 08_agents && bash install.sh
+	bash 08_agents/install.sh
