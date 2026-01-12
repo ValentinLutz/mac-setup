@@ -2,6 +2,7 @@
 - Ask before making significant changes
 - Can suggest improvements, but ask before implementing them
 - Ask before creating or modifying README and documentation files
+- Ask before adding new dependencies
 
 ## Git Commits
 - Use Conventional Commits: `type(scope): description`
@@ -34,12 +35,14 @@
 - Common targets: build, test, lint, fmt
 
 ## Avoid
-- Over-engineering: never add abstractions, patterns, or "flexibility" that isn't needed
-- Scope creep: never make unrelated changes or "improvements" outside the task
-- Comment noise: never add comments that restate the code
-- Unsolicited dependencies: never add libraries without asking
-- Drive-by refactoring: never change formatting or style in code you're not modifying
-- Defensive overkill: never add error handling for scenarios that can't happen
-- Stale markers: never leave TODOs or FIXMEs without clear context
-- Blind removal: never delete code without understanding why it exists
-- Compatibility shims: never add backwards-compat layers when you can just change the code
+- Never add abstractions, patterns, or flexibility that isn't needed
+- Never make unrelated changes or improvements outside the task
+- Never add comments that restate the code
+- Never add libraries without asking
+- Never change formatting or style in code you're not modifying
+- Never add error handling for scenarios that can't happen
+- Never leave TODOs or FIXMEs without clear context
+- Never delete code without understanding why it exists
+- Never add backwards-compat layers when you can just change the code
+- Never add `// TODO: implement` without actually implementing
+- Never comment out code, delete it
