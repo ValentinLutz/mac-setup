@@ -36,6 +36,7 @@
 - Don't "fix" inconsistencies outside the scope of the current task
 
 ## Prefer
+- Prefer library-provided utilities over custom implementations
 - Prefer small, focused functions over large monolithic ones
 - Prefer explicit over implicit behavior
 - Prefer composition over inheritance
