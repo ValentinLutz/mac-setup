@@ -3,18 +3,17 @@
 - Ask before creating or modifying README and documentation files
 - Ask before adding new dependencies
 - When uncertain about requirements or approach, ask clarifying questions before proceeding
-- Prefer fixing the root cause over adding workarounds
 
 ## Scope Discipline
 - Complete the requested task, nothing more
 - Do not fix unrelated issues; report them instead
-- Do not refactor across multiple files unless explicitly requested
-- Do not create new files when editing existing ones would suffice
+- Do not refactor beyond what is explicitly requested
+- Prefer editing existing files over creating new ones
 - When scope creep is tempting, ask first
 
-## Git Commits
+## Git & Pull Requests
 - Use Conventional Commits: `type(scope): description`
-- Keep commits focused and atomic
+- Keep commits focused and atomic (one logical change per commit)
 - Subject line only, no body
 - Do not add Co-Authored-By lines
 
@@ -30,11 +29,10 @@ For libraries: Public API changes (exported functions, types, interfaces)
 
 When uncertain if a change is breaking, ask before committing.
 
-## Pull Requests
+### Pull request reviews
 - Use Conventional Commits format for PR title
 - Keep description concise
-- Use Conventional Comments for reviews: `label: subject`
-- Labels and when to use them:
+- Use Conventional Comments: `label: subject`
   - `praise:` - Highlight something done well
   - `nitpick:` - Minor style/preference, non-blocking
   - `suggestion:` - Propose an alternative approach
@@ -42,38 +40,43 @@ When uncertain if a change is breaking, ask before committing.
   - `question:` - Seeking clarification or understanding
   - `thought:` - Share an idea without requiring action
 
-## Code Style
-- Run formatters before committing
-- Follow language-specific conventions
-- Do not manually format code; rely on automated formatters
-- Do not change formatting or style in code you're not modifying
-- Do not leave TODOs or FIXMEs without clear context
-- Do not add `// TODO: implement` without actually implementing
+## Code Principles
 
-## Code Design
+### Design
 - Prefer library-provided utilities over custom implementations
 - Prefer small, focused functions over large monolithic ones
 - Prefer explicit over implicit behavior
 - Prefer composition over inheritance
 - Prefer immutability where practical
-- Prefer descriptive names over comments; avoid comments unless they add real value
-- Prefer deleting dead code over commenting it out
-- Prefer changing code directly over adding backwards-compat layers
 - Prefer simple code over unnecessary abstractions
+- Prefer changing code directly over adding backwards-compat layers
+
+### Style
+- Run formatters before committing; do not manually format code
+- Follow language-specific conventions
+- Do not change formatting in code you are not modifying
+
+### Naming & comments
+- Prefer descriptive names over comments
+- Avoid comments unless they add real value
+- Prefer deleting dead code over commenting it out
+- Do not leave TODOs or FIXMEs without clear context
+- Do not add `// TODO: implement` without actually implementing
+
+### Error handling
+- Handle errors at appropriate boundaries (API, user input, external calls)
+- Propagate errors with context rather than swallowing them
+- Prefer returning errors over panicking/throwing
+- Fail fast on programmer errors; handle gracefully on user/external errors
+- Do not add defensive checks for conditions the type system already prevents
 
 ## Context Awareness
 - Study existing patterns before introducing new ones
 - Match the style and conventions already present in the codebase
-- When multiple approaches exist in the codebase, ask which to follow
-- If existing code uses suboptimal patterns, suggest better practices but ask before applying them
+- When multiple approaches exist, ask which to follow
+- If existing code uses suboptimal patterns, suggest improvements but ask before applying
 - Do not delete code without understanding why it exists
-
-## Error Handling
-- Handle errors at appropriate boundaries (API, user input, external calls)
-- Do not add defensive checks for conditions the type system already prevents
-- Propagate errors with context rather than swallowing them
-- Fail fast on programmer errors; handle gracefully on user/external errors
-- Prefer returning errors over panicking/throwing
+- Fix root causes, not symptoms
 
 ## Testing
 - Use given-when-then pattern:
