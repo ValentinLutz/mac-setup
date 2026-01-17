@@ -3,12 +3,20 @@
 - Ask before creating or modifying README and documentation files
 - Ask before adding new dependencies
 - When uncertain about requirements or approach, ask clarifying questions before proceeding
+- Prefer fixing the root cause over adding workarounds
+
+## Scope Discipline
+- Complete the requested task, nothing more
+- Do not fix unrelated issues; report them instead
+- Do not refactor across multiple files unless explicitly requested
+- Do not create new files when editing existing ones would suffice
+- When scope creep is tempting, ask first
 
 ## Git Commits
 - Use Conventional Commits: `type(scope): description`
 - Keep commits focused and atomic
 - Subject line only, no body
-- Never add Co-Authored-By lines
+- Do not add Co-Authored-By lines
 
 ### Commit types
 Trigger release: `feat`, `fix`, `perf`
@@ -37,30 +45,35 @@ When uncertain if a change is breaking, ask before committing.
 ## Code Style
 - Run formatters before committing
 - Follow language-specific conventions
+- Do not manually format code; rely on automated formatters
+- Do not change formatting or style in code you're not modifying
+- Do not leave TODOs or FIXMEs without clear context
+- Do not add `// TODO: implement` without actually implementing
+
+## Code Design
+- Prefer library-provided utilities over custom implementations
+- Prefer small, focused functions over large monolithic ones
+- Prefer explicit over implicit behavior
+- Prefer composition over inheritance
+- Prefer immutability where practical
+- Prefer descriptive names over comments; avoid comments unless they add real value
+- Prefer deleting dead code over commenting it out
+- Prefer changing code directly over adding backwards-compat layers
+- Prefer simple code over unnecessary abstractions
 
 ## Context Awareness
 - Study existing patterns before introducing new ones
 - Match the style and conventions already present in the codebase
 - When multiple approaches exist in the codebase, ask which to follow
 - If existing code uses suboptimal patterns, suggest better practices but ask before applying them
-- Don't "fix" inconsistencies outside the scope of the current task
-
-## Prefer
-- Prefer library-provided utilities over custom implementations
-- Prefer small, focused functions over large monolithic ones
-- Prefer explicit over implicit behavior
-- Prefer composition over inheritance
-- Prefer returning errors over panicking/throwing
-- Prefer immutability where practical
-- Prefer descriptive names over comments; avoid comments unless they add real value
-- Prefer deleting dead code over commenting it out
-- Prefer fixing the root cause over adding workarounds
+- Do not delete code without understanding why it exists
 
 ## Error Handling
 - Handle errors at appropriate boundaries (API, user input, external calls)
-- Don't add defensive checks for conditions the type system already prevents
+- Do not add defensive checks for conditions the type system already prevents
 - Propagate errors with context rather than swallowing them
 - Fail fast on programmer errors; handle gracefully on user/external errors
+- Prefer returning errors over panicking/throwing
 
 ## Testing
 - Use given-when-then pattern:
@@ -72,7 +85,7 @@ When uncertain if a change is breaking, ask before committing.
 ## Questions & Decisions
 - Use the question tool when available to present choices
 - When asking questions, provide concrete options with a recommended choice marked "(Recommended)"
-- Never ask open-ended questions when choices can be enumerated
+- Do not ask open-ended questions when choices can be enumerated
 - Prefer selecting from options over requiring typed input
 
 ## Build Tools & CLI
@@ -82,14 +95,3 @@ When uncertain if a change is breaking, ask before committing.
 - Common targets: build, test, lint, fmt
 - Use project linters and formatters when available
 - Run tests through project tooling, not manually
-
-## Avoid
-- Never add abstractions, patterns, or flexibility that isn't needed
-- Never make unrelated changes or improvements outside the task
-- Never add libraries without asking
-- Never change formatting or style in code you're not modifying
-- Never leave TODOs or FIXMEs without clear context
-- Never delete code without understanding why it exists
-- Never add backwards-compat layers when you can just change the code
-- Never add `// TODO: implement` without actually implementing
-- Never comment out code, delete it
