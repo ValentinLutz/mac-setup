@@ -29,6 +29,10 @@ For libraries: Public API changes (exported functions, types, interfaces)
 
 When uncertain if a change is breaking, ask before committing.
 
+### History rewriting
+- Do not use `git commit --amend` on commits that have been pushed
+- If a pushed commit needs fixing, create a new commit
+
 ### Pull request reviews
 - Use Conventional Commits format for PR title
 - Keep description concise
