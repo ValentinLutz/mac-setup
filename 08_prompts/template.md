@@ -6,10 +6,21 @@
 
 ## Git Commits
 - Use Conventional Commits: `type(scope): description`
-- Types: feat, fix, docs, style, refactor, test, chore
 - Keep commits focused and atomic
 - Subject line only, no body
 - Never add Co-Authored-By lines
+
+### Commit types
+Trigger release: `feat`, `fix`, `perf`
+No release: `docs`, `style`, `refactor`, `test`, `chore`, `build`, `ci`
+
+### Breaking changes
+Add `!` after type (or scope) to indicate a breaking change that affects external consumers.
+
+For services: API contract changes (endpoints, request/response formats, auth flows)
+For libraries: Public API changes (exported functions, types, interfaces)
+
+When uncertain if a change is breaking, ask before committing.
 
 ## Pull Requests
 - Use Conventional Commits format for PR title
@@ -25,7 +36,6 @@
 
 ## Code Style
 - Run formatters before committing
-- No comments unless they add real value
 - Follow language-specific conventions
 
 ## Context Awareness
@@ -42,7 +52,7 @@
 - Prefer composition over inheritance
 - Prefer returning errors over panicking/throwing
 - Prefer immutability where practical
-- Prefer descriptive names over comments
+- Prefer descriptive names over comments; avoid comments unless they add real value
 - Prefer deleting dead code over commenting it out
 - Prefer fixing the root cause over adding workarounds
 
@@ -76,7 +86,6 @@
 ## Avoid
 - Never add abstractions, patterns, or flexibility that isn't needed
 - Never make unrelated changes or improvements outside the task
-- Never add comments that restate the code
 - Never add libraries without asking
 - Never change formatting or style in code you're not modifying
 - Never leave TODOs or FIXMEs without clear context

@@ -1,4 +1,4 @@
-.PHONY: help tools iterm2 zsh docker git ssh agents
+.PHONY: help tools iterm2 zsh docker git ssh prompts
 
 help:
 	@echo "Usage: make <target>"
@@ -10,7 +10,7 @@ help:
 	@echo "  docker   Configure Docker"
 	@echo "  git      Configure Git"
 	@echo "  ssh      Configure SSH"
-	@echo "  agents   Install Claude agent instructions"
+	@echo "  prompts  Install LLM prompts and skills"
 
 tools:
 	bash 01_tools/install.sh
@@ -30,5 +30,5 @@ git:
 ssh:
 	bash 06_ssh/install.sh
 
-agents:
-	bash 08_agents/install.sh
+prompts:
+	bash 08_prompts/install.sh
