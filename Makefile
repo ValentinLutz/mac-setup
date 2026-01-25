@@ -1,4 +1,4 @@
-.PHONY: help tools iterm2 zsh docker git ssh prompts
+.PHONY: help tools iterm2 zsh docker git ssh prompts claude claude-uninstall
 
 help:
 	@echo "Usage: make <target>"
@@ -11,6 +11,8 @@ help:
 	@echo "  git      Configure Git"
 	@echo "  ssh      Configure SSH"
 	@echo "  prompts  Install LLM prompts and skills"
+	@echo "  claude   Install Claude Code plugins"
+	@echo "  claude-uninstall  Uninstall Claude Code plugins"
 
 tools:
 	bash 01_tools/install.sh
@@ -32,3 +34,9 @@ ssh:
 
 prompts:
 	bash 08_prompts/install.sh
+
+claude:
+	bash 09_claude/install.sh
+
+claude-uninstall:
+	bash 09_claude/uninstall.sh
