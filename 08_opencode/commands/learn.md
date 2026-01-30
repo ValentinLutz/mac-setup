@@ -36,13 +36,15 @@ Check if pattern contains **behavioral keywords**:
 ## Instructions
 
 1. **Determine save locations**
-   - Run `git rev-parse --show-toplevel 2>/dev/null`
-   - Skills: `<git-root>/.opencode/skills/` (or `<cwd>/.opencode/skills/`)
-   - AGENTS.md: `~/.config/opencode/AGENTS.md`
+   - Skills: `./.opencode/skills/` (current working directory)
+   - Global AGENTS.md: `~/.config/opencode/AGENTS.md`
+   - Project AGENTS.md: `<git-root>/AGENTS.md` (run `git rev-parse --show-toplevel`)
 
 2. **Scan existing content**
-   - Read `<skills-location>/*/SKILL.md` if directory exists
-   - Read AGENTS.md to understand existing sections
+   - Read `./.opencode/skills/*/SKILL.md` if directory exists
+   - Read `~/.config/opencode/skills/*/SKILL.md` for global skills reference
+   - Read `~/.config/opencode/AGENTS.md` for global behavioral rules
+   - Read `<git-root>/AGENTS.md` if it exists for project-specific rules
 
 3. **Analyze session** - Identify 1-3 patterns worth extracting
 
@@ -58,6 +60,9 @@ Check if pattern contains **behavioral keywords**:
    - Different sub-domain → create new skill
 
 6. **For AGENTS.md:**
+   - Ask user: project-specific or global rule?
+     - Project-specific → `<git-root>/AGENTS.md`
+     - Global → `~/.config/opencode/AGENTS.md`
    - Identify the appropriate section (Behavior, Scope, Code Principles, etc.)
    - Add as a new bullet point in that section
    - Keep rules concise (one line if possible)
