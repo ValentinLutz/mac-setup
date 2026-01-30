@@ -33,17 +33,6 @@ When uncertain if a change is breaking, ask before committing.
 - Do not use `git commit --amend` on commits that have been pushed
 - If a pushed commit needs fixing, create a new commit
 
-### Pull request reviews
-- Use Conventional Commits format for PR title
-- Keep description concise
-- Use Conventional Comments: `label: subject`
-  - `praise:` - Highlight something done well
-  - `nitpick:` - Minor style/preference, non-blocking
-  - `suggestion:` - Propose an alternative approach
-  - `issue:` - Something that must be addressed
-  - `question:` - Seeking clarification or understanding
-  - `thought:` - Share an idea without requiring action
-
 ## Code Principles
 
 ### Design
@@ -59,6 +48,14 @@ When uncertain if a change is breaking, ask before committing.
 - Run formatters before committing; do not manually format code
 - Follow language-specific conventions
 - Do not change formatting in code you are not modifying
+
+### Go whitespace (wsl)
+- Add blank line before `if`, `for`, `switch`, `select`, `defer`, `go`, `return` unless cuddled with a directly related assignment
+- Cuddle `if err != nil` with the statement that assigned `err`
+- Do not start or end blocks with blank lines
+- Declarations (`var`, `const`, `type`) should not be cuddled; use grouped syntax or separate with blank lines
+- Only one assignment may cuddle before a control structure
+- Branch statements (`break`, `continue`, `return`) need blank line before them if block exceeds two lines
 
 ### Naming & comments
 - Prefer descriptive names over comments

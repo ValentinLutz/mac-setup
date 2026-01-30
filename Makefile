@@ -1,18 +1,16 @@
-.PHONY: help tools iterm2 zsh docker git ssh prompts claude claude-uninstall
+.PHONY: help tools iterm2 zsh docker git ssh ai-coding
 
 help:
 	@echo "Usage: make <target>"
 	@echo ""
 	@echo "Targets:"
-	@echo "  tools    Install Homebrew packages"
-	@echo "  iterm2   Configure iTerm2"
-	@echo "  zsh      Install oh-my-zsh and zsh config"
-	@echo "  docker   Configure Docker"
-	@echo "  git      Configure Git"
-	@echo "  ssh      Configure SSH"
-	@echo "  prompts  Install LLM prompts and skills"
-	@echo "  claude   Install Claude Code plugins"
-	@echo "  claude-uninstall  Uninstall Claude Code plugins"
+	@echo "  tools      Install Homebrew packages"
+	@echo "  iterm2     Configure iTerm2"
+	@echo "  zsh        Install oh-my-zsh and zsh config"
+	@echo "  docker     Configure Docker"
+	@echo "  git        Configure Git"
+	@echo "  ssh        Configure SSH"
+	@echo "  opencode   Configure OpenCode"
 
 tools:
 	bash 01_tools/install.sh
@@ -32,11 +30,5 @@ git:
 ssh:
 	bash 06_ssh/install.sh
 
-prompts:
-	bash 08_prompts/install.sh
-
-claude:
-	bash 09_claude/install.sh
-
-claude-uninstall:
-	bash 09_claude/uninstall.sh
+opencode:
+	bash 08_opencode/install.sh
