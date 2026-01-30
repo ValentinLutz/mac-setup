@@ -1,4 +1,4 @@
-.PHONY: help tools iterm2 zsh docker git ssh ai-coding
+.PHONY: help tools iterm2 zsh docker git ssh opencode
 
 help:
 	@echo "Usage: make <target>"

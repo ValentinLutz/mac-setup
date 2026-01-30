@@ -27,3 +27,11 @@ cp "${opencode_config_file}" "${opencode_backup_file}"
 
 echo "Updating config ${opencode_config_file}"
 cp "$SCRIPT_DIR/opencode.json" "${opencode_config_file}"
+
+# Install skills
+if command -v npx &> /dev/null; then
+    echo ""
+    echo "Installing skills..."
+    npx skills add https://github.com/obra/superpowers --skill '*' -a opencode -g -y
+    npx skills add https://github.com/anthropics/skills --skill frontend-design -a opencode -g -y
+fi
