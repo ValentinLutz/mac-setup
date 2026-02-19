@@ -79,13 +79,6 @@ When uncertain if a change is breaking, ask before committing.
 - Do not delete code without understanding why it exists
 - Fix root causes, not symptoms
 
-## Testing
-- Use given-when-then pattern:
-  - given: setup and preconditions
-  - when: action being tested
-  - then: expected outcome
-- Use comments to mark each section when helpful
-
 ## Questions & Decisions
 - Use the question tool when available to present choices
 - When asking questions, provide concrete options with a recommended choice marked "(Recommended)"
