@@ -1,5 +1,6 @@
 ## Behavior
-- Ask before making significant changes
+- Follow direct user instructions first, then this file, then default agent behavior
+- Ask before making significant changes (new files, cross-cutting refactors, architectural changes, or behavior changes outside the requested scope)
 - Ask before creating or modifying README and documentation files
 - Ask before adding new dependencies
 - When uncertain about requirements or approach, ask clarifying questions before proceeding
@@ -70,6 +71,12 @@ When uncertain if a change is breaking, ask before committing.
 - Prefer returning errors over panicking/throwing
 - Fail fast on programmer errors; handle gracefully on user/external errors
 - Do not add defensive checks for conditions the type system already prevents
+
+### Testing
+- For bug fixes, first add or update a failing test that reproduces the bug before changing production code
+- Use the reproducing test to verify the assumption about the root cause, then implement the fix
+- If a reproducing automated test is not practical, explain why and describe how the bug was verified
+- After code changes, run the relevant project test command when feasible and report any failures clearly
 
 ## Context Awareness
 - Study existing patterns before introducing new ones
