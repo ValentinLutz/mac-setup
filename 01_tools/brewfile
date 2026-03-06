@@ -32,6 +32,7 @@ brew "spectral-cli"
 brew "ncdu"
 brew "prism-cli"
 brew "tmux"
+brew "ko"
 
 tap "oven-sh/bun"
 brew "oven-sh/bun/bun"
