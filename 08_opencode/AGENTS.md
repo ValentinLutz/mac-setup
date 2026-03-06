@@ -75,7 +75,8 @@ When uncertain if a change is breaking, ask before committing.
 - Use the reproducing test to verify the assumption about the root cause, then implement the fix
 - For new features and refactors, add or update tests early when practical to clarify intended behavior and guard against regressions
 - If a reproducing automated test is not practical, explain why and describe how the bug was verified
-- After code changes, run the relevant project test command when feasible and report any failures clearly
+- After code changes, run the relevant project validation commands when feasible
+- Default validation order is: formatter, linter, tests
 
 ## Context Awareness
 - Study existing patterns before introducing new ones
