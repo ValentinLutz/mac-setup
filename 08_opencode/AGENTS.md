@@ -1,5 +1,6 @@
 ## Behavior
-- Follow direct user instructions first, then this file, then default agent behavior
+- Follow direct user instructions first, then project/local instructions, then this global file, then default agent behavior
+- When multiple instruction files apply, prefer the most specific/local instruction over broader guidance
 - Ask before making significant changes (new files, cross-cutting refactors, architectural changes, or behavior changes outside the requested scope)
 - Ask before creating or modifying README and documentation files
 - Ask before adding new dependencies
@@ -11,6 +12,11 @@
 - Do not refactor beyond what is explicitly requested
 - Prefer editing existing files over creating new ones
 - When scope creep is tempting, ask first
+
+## Project Discovery
+- Before making changes, quickly identify the relevant project instructions, tooling, and nearby code patterns
+- Prefer local project conventions over generic defaults
+- Keep discovery proportional to the task
 
 ## Git & Pull Requests
 - Use Conventional Commits: `type(scope): description`
@@ -50,14 +56,6 @@ When uncertain if a change is breaking, ask before committing.
 - Follow language-specific conventions
 - Do not change formatting in code you are not modifying
 
-### Go whitespace (wsl)
-- Add blank line before `if`, `for`, `switch`, `select`, `defer`, `go`, `return` unless cuddled with a directly related assignment
-- Cuddle `if err != nil` with the statement that assigned `err`
-- Do not start or end blocks with blank lines
-- Declarations (`var`, `const`, `type`) should not be cuddled; use grouped syntax or separate with blank lines
-- Only one assignment may cuddle before a control structure
-- Branch statements (`break`, `continue`, `return`) need blank line before them if block exceeds two lines
-
 ### Naming & comments
 - Prefer descriptive names over comments
 - Avoid comments unless they add real value
@@ -92,10 +90,14 @@ When uncertain if a change is breaking, ask before committing.
 - Do not ask open-ended questions when choices can be enumerated
 - Prefer selecting from options over requiring typed input
 
+## Security & Secrets
+- Never expose, print, or commit secrets, tokens, private keys, or credentials unless explicitly required and approved
+- Treat `.env`, credential files, key material, and production config as sensitive
+- Ask before changes that affect auth, permissions, billing, infrastructure, deployments, or production data
+- If secrets appear in code, logs, or diffs, do not repeat them; warn the user and minimize exposure
+
 ## Build Tools & CLI
 - Prefer CLI tools over manual code manipulation
-- Use Makefile if project has one
-- Use Mage if project has magefile.go
-- Common targets: build, test, lint, fmt
-- Use project linters and formatters when available
-- Run tests through project tooling, not manually
+- Prefer project tooling and documented entrypoints over ad hoc commands
+- When available, use the repo's task runners, scripts, linters, formatters, and test commands
+- Run validation through project tooling when feasible
