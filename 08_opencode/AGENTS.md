@@ -52,7 +52,7 @@ When uncertain if a change is breaking, ask before committing.
 - Prefer changing code directly over adding backwards-compat layers
 
 ### Style
-- Run formatters before committing; do not manually format code
+- Run formatters before finishing when feasible; do not manually format code
 - Follow language-specific conventions
 - Do not change formatting in code you are not modifying
 
@@ -71,8 +71,9 @@ When uncertain if a change is breaking, ask before committing.
 - Do not add defensive checks for conditions the type system already prevents
 
 ### Testing
-- For bug fixes, first add or update a failing test that reproduces the bug before changing production code
+- Prefer test-first development when practical: for bug fixes, first add or update a failing test that reproduces the bug before changing production code
 - Use the reproducing test to verify the assumption about the root cause, then implement the fix
+- For new features and refactors, add or update tests early when practical to clarify intended behavior and guard against regressions
 - If a reproducing automated test is not practical, explain why and describe how the bug was verified
 - After code changes, run the relevant project test command when feasible and report any failures clearly
 
