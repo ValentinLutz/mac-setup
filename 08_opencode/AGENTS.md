@@ -75,8 +75,10 @@ When uncertain if a change is breaking, ask before committing.
 - Use the reproducing test to verify the assumption about the root cause, then implement the fix
 - For new features and refactors, add or update tests early when practical to clarify intended behavior and guard against regressions
 - If a reproducing automated test is not practical, explain why and describe how the bug was verified
-- After code changes, run the relevant project validation commands when feasible
-- Default validation order is: formatter, linter, tests
+- After code changes, run the repo's validation commands when available
+- Validation order is: formatter, linter, tests
+- Prefer project entrypoints (`make`, `just`, scripts) over ad hoc commands
+- If any validation step is skipped, say why in the final response
 
 ### Go whitespace (wsl)
 - Add blank line before `if`, `for`, `switch`, `select`, `defer`, `go`, `return` unless cuddled with a directly related assignment
