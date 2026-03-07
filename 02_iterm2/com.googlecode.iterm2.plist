@@ -569,6 +569,8 @@
 	<false/>
 	<key>OpenNoWindowsAtStartup</key>
 	<false/>
+	<key>PMPrintingPanelSize</key>
+	<string>{780, 610}</string>
 	<key>PointerActions</key>
 	<dict>
 		<key>Button,1,1,,</key>
