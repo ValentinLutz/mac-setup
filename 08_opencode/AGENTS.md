@@ -78,6 +78,14 @@ When uncertain if a change is breaking, ask before committing.
 - After code changes, run the relevant project validation commands when feasible
 - Default validation order is: formatter, linter, tests
 
+### Go whitespace (wsl)
+- Add blank line before `if`, `for`, `switch`, `select`, `defer`, `go`, `return` unless cuddled with a directly related assignment
+- Cuddle `if err != nil` with the statement that assigned `err`
+- Do not start or end blocks with blank lines
+- Declarations (`var`, `const`, `type`) should not be cuddled; use grouped syntax or separate with blank lines
+- Only one assignment may cuddle before a control structure
+- Branch statements (`break`, `continue`, `return`) need blank line before them if block exceeds two lines
+
 ## Context Awareness
 - Study existing patterns before introducing new ones
 - Match the style and conventions already present in the codebase
