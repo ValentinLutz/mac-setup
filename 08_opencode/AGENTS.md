@@ -18,6 +18,28 @@
 - Prefer local project conventions over generic defaults
 - Keep discovery proportional to the task
 
+## Testing Workflow
+- For bug fixes, follow a strict test-first workflow
+- For new features, refactors, and other behavior changes, use test-first development when practical and prefer adding or updating tests before changing production code
+- Do not treat docs-only, copy-only, formatting-only, or other non-behavioral changes as requiring test-first development
+
+For bug fixes, required sequence:
+1. Add or update an automated test that reproduces the bug.
+2. Run the reproducing test and confirm it fails for the expected reason.
+3. Implement the production fix.
+4. Re-run the reproducing test, then run formatter, linter, tests, and any relevant build commands.
+
+For new features, refactors, and other behavior changes, preferred sequence when practical:
+1. Add or update tests that define the expected behavior.
+2. Run the relevant tests before changing production code when practical.
+3. Implement the production change.
+4. Re-run formatter, linter, tests, and any relevant build commands.
+
+- Do not skip steps 1 or 2 for bug fixes unless an automated reproducing test is genuinely impractical
+- If test-first development is impractical, explicitly explain why and describe how the change will be verified instead
+- In the final response, state whether tests were written first and run before the production change, or why that was impractical
+- When speed and process conflict, prioritize correctness and this workflow over speed
+
 ## Git & Pull Requests
 - Use Conventional Commits: `type(scope): description`
 - Keep commits focused and atomic (one logical change per commit)
@@ -71,14 +93,11 @@ When uncertain if a change is breaking, ask before committing.
 - Do not add defensive checks for conditions the type system already prevents
 
 ### Testing
-- Prefer test-first development when practical: for bug fixes, first add or update a failing test that reproduces the bug before changing production code
-- Use the reproducing test to verify the assumption about the root cause, then implement the fix
-- For new features and refactors, add or update tests early when practical to clarify intended behavior and guard against regressions
-- If a reproducing automated test is not practical, explain why and describe how the bug was verified
 - After code changes, run the repo's validation commands when available
 - Validation order is: formatter, linter, tests
 - Prefer project entrypoints (`make`, `just`, scripts) over ad hoc commands
 - If any validation step is skipped, say why in the final response
+- For behavior changes, the final response must state whether tests were written first and run before the production change, or why that was impractical
 
 ### Go whitespace (wsl)
 - Add blank line before `if`, `for`, `switch`, `select`, `defer`, `go`, `return` unless cuddled with a directly related assignment
