@@ -33,6 +33,7 @@ brew "ncdu"
 brew "prism-cli"
 brew "tmux"
 brew "ko"
+brew "goreleaser"
 
 tap "oven-sh/bun"
 brew "oven-sh/bun/bun"
