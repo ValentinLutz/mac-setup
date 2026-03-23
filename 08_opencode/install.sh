@@ -27,3 +27,14 @@ cp "${opencode_config_file}" "${opencode_backup_file}"
 
 echo "Updating config ${opencode_config_file}"
 cp "$SCRIPT_DIR/opencode.json" "${opencode_config_file}"
+
+# Update global CLAUDE.md (Claude Code)
+mkdir -p ~/.claude
+claude_config_file=~/.claude/CLAUDE.md
+claude_backup_file=$SCRIPT_DIR/${timestamp}.CLAUDE.md.backup
+
+echo "Creating backup of ${claude_config_file} to ${claude_backup_file}"
+cp "${claude_config_file}" "${claude_backup_file}"
+
+echo "Updating config ${claude_config_file}"
+cp "$SCRIPT_DIR/AGENTS.md" "${claude_config_file}"
