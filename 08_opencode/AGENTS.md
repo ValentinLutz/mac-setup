@@ -13,6 +13,12 @@
 - Prefer editing existing files over creating new ones
 - When scope creep is tempting, ask first
 
+## Output Style
+- Be concise; lead with the action or answer, not the reasoning
+- Do not summarize what you just did unless asked
+- Explain only what is necessary for the user to understand or unblock
+- When showing code changes, prefer diffs or minimal context over full file dumps
+
 ## Project Discovery
 - Before making changes, quickly identify the relevant project instructions, tooling, and nearby code patterns
 - Prefer local project conventions over generic defaults
@@ -39,6 +45,7 @@ For new features, refactors, and other behavior changes, preferred sequence when
 - If test-first development is impractical, explicitly explain why and describe how the change will be verified instead
 - In the final response, state whether tests were written first and run before the production change, or why that was impractical
 - When speed and process conflict, prioritize correctness and this workflow over speed
+- Before reporting completion, verify that your changes compile and pass all validation steps; do not report success based on assumption
 
 ## Git & Pull Requests
 - Use Conventional Commits: `type(scope): description`
@@ -92,20 +99,10 @@ When uncertain if a change is breaking, ask before committing.
 - Fail fast on programmer errors; handle gracefully on user/external errors
 - Do not add defensive checks for conditions the type system already prevents
 
-### Testing
-- After code changes, run the repo's validation commands when available
-- Validation order is: formatter, linter, tests
+### Validation
+- After code changes, run validation in order: formatter, linter, tests
 - Prefer project entrypoints (`make`, `just`, scripts) over ad hoc commands
-- If any validation step is skipped, say why in the final response
-- For behavior changes, the final response must state whether tests were written first and run before the production change, or why that was impractical
-
-### Go whitespace (wsl)
-- Add blank line before `if`, `for`, `switch`, `select`, `defer`, `go`, `return` unless cuddled with a directly related assignment
-- Cuddle `if err != nil` with the statement that assigned `err`
-- Do not start or end blocks with blank lines
-- Declarations (`var`, `const`, `type`) should not be cuddled; use grouped syntax or separate with blank lines
-- Only one assignment may cuddle before a control structure
-- Branch statements (`break`, `continue`, `return`) need blank line before them if block exceeds two lines
+- If any step is skipped, say why in the final response
 
 ## Context Awareness
 - Study existing patterns before introducing new ones
@@ -114,6 +111,12 @@ When uncertain if a change is breaking, ask before committing.
 - If existing code uses suboptimal patterns, suggest improvements but ask before applying
 - Do not delete code without understanding why it exists
 - Fix root causes, not symptoms
+
+## When Blocked
+- If a command fails or tests break unexpectedly, report what you tried and what failed before retrying
+- Do not retry the same failing approach more than once; investigate or ask
+- If your change introduces new test failures, revert and investigate before trying a different approach
+- If required tooling is missing or inaccessible, report it rather than working around it
 
 ## Questions & Decisions
 - Use the question tool when available to present choices
