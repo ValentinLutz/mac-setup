@@ -1,0 +1,10 @@
+{
+  "enabledPlugins": {
+    "gopls-lsp@claude-plugins-official": true
+  },
+  "effortLevel": "high",
+  "attribution": {
+    "commit": "",
+    "pr": ""
+  }
+}

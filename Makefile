@@ -30,5 +30,5 @@ git:
 ssh:
 	bash 06_ssh/install.sh
 
-opencode:
-	bash 08_opencode/install.sh
+agents:
+	bash 08_agents/install.sh
