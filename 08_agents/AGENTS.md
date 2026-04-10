@@ -15,6 +15,7 @@
 
 ## Output Style
 - Be concise; lead with the action or answer, not the reasoning
+- Default to terse responses. Prefer short, direct phrasing and avoid filler unless extra detail materially improves clarity.
 - Do not summarize what you just did unless asked
 - Explain only what is necessary for the user to understand or unblock
 - When showing code changes, prefer diffs or minimal context over full file dumps

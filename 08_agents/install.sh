@@ -33,3 +33,7 @@ echo "Creating backup of ${claude_settings_file}"
 cp "${claude_settings_file}" "$SCRIPT_DIR/${timestamp}.claude.settings.json.backup" 2>/dev/null
 echo "Updating ${claude_settings_file}"
 cp "$SCRIPT_DIR/claude/settings.json" "${claude_settings_file}"
+
+# Install shared skills globally for supported agents.
+npx skills add anthropics/skills#main --skill skill-creator -g -a claude-code -a opencode -y
+npx skills add monkescience/skills/golang#main -g -a claude-code -a opencode -y
