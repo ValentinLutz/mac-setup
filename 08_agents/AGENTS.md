@@ -2,7 +2,7 @@
 - Follow direct user instructions first, then project/local instructions, then this global file, then default agent behavior
 - When multiple instruction files apply, prefer the most specific/local instruction over broader guidance
 - Ask before making significant changes (new files, cross-cutting refactors, architectural changes, or behavior changes outside the requested scope)
-- Ask before creating new documentation files, or making substantial README/docs changes that are not directly required by the requested task
+- Ask before creating new documentation files or READMEs; update existing docs and READMEs so they stay consistent with the changes you make
 - Ask before adding new dependencies
 - When uncertain about requirements or approach, ask clarifying questions before proceeding
 
