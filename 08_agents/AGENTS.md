@@ -6,6 +6,13 @@
 - Ask before adding new dependencies
 - When uncertain about requirements or approach, ask clarifying questions before proceeding
 
+## Skills
+- IMPORTANT: Before editing files in a language or framework that has a matching installed skill, invoke the skill via the skill tool; do not rely on training knowledge for its guidelines
+- Check the available skills list at session start; when a file's language/framework matches a skill's trigger conditions, load it before making changes
+- Example: before editing Go files (`.go`, `go.mod`), invoke `golang-guidelines` plus the relevant project-type skill (`golang-service-guidelines`, `golang-cli-guidelines`, or `golang-library-guidelines`)
+- If no matching skill exists, proceed normally
+- Re-invoke a skill only if its instructions are no longer in context
+
 ## Scope Discipline
 - IMPORTANT: Complete the requested task, nothing more
 - Do not fix unrelated issues; report them instead
