@@ -1,4 +1,4 @@
-.PHONY: help tools iterm2 zsh docker git ssh opencode
+.PHONY: help tools iterm2 zsh docker git ssh aws opencode
 
 help:
 	@echo "Usage: make <target>"
@@ -10,6 +10,7 @@ help:
 	@echo "  docker     Configure Docker"
 	@echo "  git        Configure Git"
 	@echo "  ssh        Configure SSH"
+	@echo "  aws        Configure AWS SSO"
 	@echo "  opencode   Configure OpenCode"
 
 tools:
@@ -29,6 +30,9 @@ git:
 
 ssh:
 	bash 06_ssh/install.sh
+
+aws:
+	bash 07_aws/install.sh
 
 agents:
 	bash 08_agents/install.sh

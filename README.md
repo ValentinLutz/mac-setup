@@ -16,6 +16,7 @@ This project is organized into modular configuration sections, each handling a s
 | **04_docker** | Installs and configures Docker for containerization |
 | **05_git** | Configures Git with custom settings and commit hooks |
 | **06_ssh** | SSH key setup and configuration for secure connections |
+| **07_aws** | AWS CLI SSO profile configuration |
 
 ## Pre-requisites
 
@@ -39,6 +40,7 @@ cd 03_zsh && bash install.sh && cd ..
 cd 04_docker && bash install.sh && cd ..
 cd 05_git && bash install.sh && cd ..
 cd 06_ssh && bash install.sh && cd ..
+cd 07_aws && bash install.sh && cd ..
 ```
 
 ### Option 2: Install Specific Module
@@ -92,6 +94,14 @@ Provides instructions for SSH key setup and configuration.
 2. Add keys to GitHub, servers, etc.
 3. Run `install.sh` to configure SSH client settings
 
+### 07_aws
+Configures AWS CLI SSO profiles for the dev, prod, and root accounts.
+
+**What it does:**
+- Backs up existing `~/.aws/config`
+- Installs AWS SSO config for explicit dev, prod, and root profiles
+- Enables `aws sso login --profile dev`, `aws sso login --profile prod`, and `aws sso login --profile root`
+
 ## Backups
 
 All installation scripts automatically create timestamped backups before overwriting configuration files:
@@ -113,6 +123,7 @@ Each module contains configuration files that you can customize before installat
 - `05_git/.gitconfig` - Git global configuration
 - `05_git/.gitconfigs/default/` - Git hooks and local configs
 - `06_ssh/config` - SSH client configuration
+- `07_aws/config` - AWS CLI SSO profile configuration
 
 ## Troubleshooting
 

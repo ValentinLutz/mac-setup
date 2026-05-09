@@ -1,0 +1,25 @@
+[profile dev]
+sso_session = monke
+sso_account_id = 387105013966
+sso_role_name = admin
+region = eu-central-1
+output = json
+
+[profile prod]
+sso_session = monke
+sso_account_id = 978150176582
+sso_role_name = admin
+region = eu-central-1
+output = json
+
+[profile root]
+sso_session = monke
+sso_account_id = 489721517942
+sso_role_name = admin
+region = eu-central-1
+output = json
+
+[sso-session monke]
+sso_start_url = https://monke.awsapps.com/start
+sso_region = eu-central-1
+sso_registration_scopes = sso:account:access
