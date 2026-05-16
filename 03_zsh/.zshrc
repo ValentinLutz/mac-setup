@@ -22,3 +22,9 @@ export PATH=$PATH:~/.local/bin
 
 # mise configuration
 eval "$(mise activate zsh)"
+
+# fzf configuration
+source <(fzf --zsh)
+
+# zoxide configuration
+eval "$(zoxide init zsh)"
