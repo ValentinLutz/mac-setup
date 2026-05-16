@@ -5,6 +5,7 @@ timestamp=$(date +"%Y%m%d_%H%M%S")
 
 mkdir -p ~/.config/opencode
 mkdir -p ~/.claude
+mkdir -p ~/.pi/agent
 
 # Update opencode AGENTS.md
 opencode_agents_file=~/.config/opencode/AGENTS.md
@@ -34,6 +35,13 @@ cp "${claude_settings_file}" "$SCRIPT_DIR/${timestamp}.claude.settings.json.back
 echo "Updating ${claude_settings_file}"
 cp "$SCRIPT_DIR/claude/settings.json" "${claude_settings_file}"
 
+# Update pi AGENTS.md
+pi_agents_file=~/.pi/agent/AGENTS.md
+echo "Creating backup of ${pi_agents_file}"
+cp "${pi_agents_file}" "$SCRIPT_DIR/${timestamp}.pi.AGENTS.md.backup" 2>/dev/null
+echo "Updating ${pi_agents_file}"
+cp "$SCRIPT_DIR/AGENTS.md" "${pi_agents_file}"
+
 # Install shared skills globally for supported agents.
-npx skills add anthropics/skills#main --skill skill-creator -g -a claude-code -a opencode -y
-npx skills add monkescience/skills#main -g -a claude-code -a opencode -y
+npx skills@1.5.7 add anthropics/skills#main --skill skill-creator -g -a claude-code -a opencode -a pi -y
+npx skills@1.5.7 add monkescience/skills#main -g -a claude-code -a opencode -a pi -y
