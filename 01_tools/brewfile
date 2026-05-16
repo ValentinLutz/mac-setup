@@ -35,6 +35,7 @@ brew "tmux"
 brew "ko"
 brew "goreleaser"
 brew "atmos"
+brew "pi-coding-agent"
 
 tap "oven-sh/bun"
 brew "oven-sh/bun/bun"
