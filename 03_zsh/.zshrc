@@ -17,20 +17,8 @@ source $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 # Go configuration
 export PATH=$PATH:$(go env GOPATH)/bin
 
-# Java configuration
-export JAVA_11_HOME=$(/usr/libexec/java_home -v11)
-export JAVA_17_HOME=$(/usr/libexec/java_home -v17)
-export JAVA_21_HOME=$(/usr/libexec/java_home -v21)
-
-alias java11='export JAVA_HOME=$JAVA_11_HOME'
-alias java17='export JAVA_HOME=$JAVA_17_HOME'
-alias java21='export JAVA_HOME=$JAVA_21_HOME'
-
-export JAVA_HOME=$JAVA_21_HOME
-
-# Node configuration
-alias node18='export PATH="/opt/homebrew/opt/node@18/bin:$PATH"'
-alias node20='export PATH="/opt/homebrew/opt/node@20/bin:$PATH"'
-
 # Python configuration
 export PATH=$PATH:~/.local/bin
+
+# mise configuration
+eval "$(mise activate zsh)"
