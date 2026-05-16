@@ -1,6 +1,14 @@
-brew "podman"
+# Docker
 brew "docker"
 brew "docker-buildx"
 brew "docker-compose"
+brew "docker-completion"
 
+# Podman
+brew "podman"
+brew "slp/krunkit/krunkit"
 cask "podman-desktop"
+
+# Container tooling
+brew "hadolint"
+brew "dive"

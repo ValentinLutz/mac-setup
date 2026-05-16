@@ -1,77 +1,116 @@
+# Shell & CLI utilities
 brew "bash"
-brew "wget"
-brew "jq"
-brew "htop"
 brew "coreutils"
 brew "grep"
 brew "gnu-sed"
 brew "gnu-tar"
+brew "wget"
+brew "jq"
 brew "yq"
+brew "htop"
+brew "ncdu"
+brew "tmux"
+brew "gh"
+brew "git-filter-repo"
+brew "fzf"
+brew "ripgrep"
+brew "fd"
+brew "bat"
+brew "eza"
+brew "zoxide"
+brew "git-delta"
+brew "tldr"
 
+# Linters & formatters
+brew "shellcheck"
+brew "shfmt"
+brew "gitleaks"
+
+# Version manager
+brew "mise"
+
+# Cloud & infrastructure
 brew "awscli"
-brew "kubectl"
-brew "kubectx"
-brew "kustomize"
-brew "k9s"
-brew "k6"
-brew "k3d"
+brew "ansible"
 brew "opentofu"
 brew "terraform"
 brew "terragrunt"
 brew "cdktf"
-brew "ansible"
-brew "cmctl"
-brew "helm"
-brew "kind"
-brew "ollama"
-brew "kubeseal"
-brew "istioctl"
-brew "gh"
 brew "tflint"
-brew "spectral-cli"
-brew "ncdu"
-brew "prism-cli"
-brew "tmux"
-brew "ko"
-brew "goreleaser"
+brew "hashicorp/tap/packer"
 brew "atmos"
-brew "pi-coding-agent"
-
-tap "oven-sh/bun"
-brew "oven-sh/bun/bun"
-
-tap "anomalyco/tap"
-brew "anomalyco/tap/opencode"
-
-cask "claude-code"
-cask "dbeaver-community"
-cask "firefox"
-cask "google-chrome"
-cask "insomnia"
-cask "keepassxc"
-cask "spotify"
-cask "linearmouse"
-cask "maccy"
-cask "betterdisplay"
-cask "cursor"
 cask "session-manager-plugin"
 
-cask "visual-studio-code"
-cask "jetbrains-toolbox"
+# Kubernetes
+brew "kubectl"
+brew "kubectx"
+brew "kustomize"
+brew "k9s"
+brew "k3d"
+brew "kind"
+brew "helm"
+brew "cmctl"
+brew "kubeseal"
+brew "istioctl"
+brew "argocd"
+brew "kubescape"
+brew "ko"
+cask "headlamp"
 
+# Testing & API tooling
+brew "k6"
+brew "spectral-cli"
+brew "prism-cli"
+
+# AI / agents
+brew "ollama"
+brew "pi-coding-agent"
+brew "anomalyco/tap/opencode"
+cask "claude-code@latest"
+
+# Go
 brew "go"
 brew "mage"
+brew "golangci-lint"
+brew "sqlc"
+brew "goreleaser"
 
-brew "rust"
+# Rust
+brew "rustup"
 
+# Python
 brew "python3"
 brew "pipx"
+brew "uv"
 
-cask "temurin@11"
-cask "temurin@17"
-cask "temurin@21"
+# Node
+brew "node"
+brew "oven-sh/bun/bun"
+
+# Java
+cask "temurin"
 brew "maven"
 brew "gradle"
 
-brew "node@18"
-brew "node@20"
+# IDEs & editors
+cask "visual-studio-code"
+cask "cursor"
+cask "jetbrains-toolbox"
+
+# Database & API clients
+cask "dbeaver-community"
+cask "insomnia"
+
+# Browsers
+cask "firefox"
+cask "google-chrome"
+
+# Productivity & utilities
+cask "keepassxc"
+cask "linearmouse"
+cask "maccy"
+cask "betterdisplay"
+cask "google-drive"
+
+# Media
+cask "spotify"
