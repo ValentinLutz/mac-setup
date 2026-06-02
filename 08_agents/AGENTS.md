@@ -4,6 +4,8 @@
 - Ask before making significant changes (new files, cross-cutting refactors, architectural changes, or behavior changes outside the requested scope)
 - Ask before creating new documentation files or READMEs. Update existing docs and READMEs so they stay consistent with the changes you make
 - Ask before adding new dependencies
+- Never pin a dependency, image, or chart version from memory. Verify the current version against the authoritative source (npm, pkg.go.dev, crates.io, Artifact Hub, `helm search repo`, GitHub releases) before adding it
+- Prefer the latest stable release compatible with the existing stack. Do not bump to the newest version when it would break a constraint (an existing pin or range, the runtime or language version like Node, Go, or the Kubernetes API, or peer dependency requirements). Avoid pre-releases and major bumps with breaking changes unless explicitly requested. When the latest cannot be used, match the working version and flag the gap instead of upgrading silently
 - When uncertain about requirements or approach, ask clarifying questions before proceeding
 
 ## Candor
