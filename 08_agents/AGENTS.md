@@ -14,6 +14,7 @@
 - Always offer a concrete better alternative when you reject something. Criticism without a path forward is useless
 - Praise only when it is earned, and keep it short
 - Lead with the problem, then the reasoning, then the better option
+- Keep candor terse: state the flaw, the reason, the better option, then stop
 
 ## Skills
 - IMPORTANT: Before editing files in a language or framework that has a matching installed skill, invoke the skill via the skill tool. Do not rely on training knowledge for its guidelines
@@ -36,34 +37,29 @@
 - Explain only what is necessary for the user to understand or unblock
 - When showing code changes, prefer diffs or minimal context over full file dumps
 - Write in natural language. Use plain words and simple sentences
-- IMPORTANT: Never use em dashes (—) or en dashes (–) in prose: chat responses, commit messages, code comments, docs, and any text you write. Use a comma, parentheses, or two separate sentences instead
-- IMPORTANT: Never use semicolons (;) in prose: chat responses, commit messages, code comments, docs, and any text you write. Split into two sentences instead. This applies to writing only. Leave semicolons that are part of code syntax alone, since many languages require them
+- IMPORTANT: Never use em dashes (—), en dashes (–), or semicolons (;) in prose: chat responses, commit messages, code comments, docs, and any text you write. Use a comma, parentheses, or two separate sentences instead. This applies to writing only. Leave semicolons that are part of code syntax alone, since many languages require them
 - Before sending a response, re-read it and replace every em dash, en dash, and prose semicolon. Treat this as a hard correctness check, not a style preference. Do not touch punctuation inside code
 - Keep responses short. If a sentence does not add information, remove it
 
 ## Testing Workflow
-- IMPORTANT: For bug fixes, follow a strict test-first workflow. Do not skip steps 1 or 2 unless an automated reproducing test is genuinely impractical
-- For new features, refactors, and other behavior changes, use test-first development when practical and prefer adding or updating tests before changing production code
+- For bug fixes, follow a strict test-first workflow. Do not skip steps 1 or 2 unless an automated reproducing test is genuinely impractical
+- For new features, refactors, and other behavior changes, use test-first development when practical
 - Do not treat docs-only, copy-only, formatting-only, or other non-behavioral changes as requiring test-first development
 
-For bug fixes, required sequence:
-1. Add or update an automated test that reproduces the bug.
-2. Run the reproducing test and confirm it fails for the expected reason.
-3. Implement the production fix.
-4. Re-run the reproducing test, then run formatter, linter, tests, and any relevant build commands.
-
-For new features, refactors, and other behavior changes, preferred sequence when practical:
-1. Add or update tests that define the expected behavior.
-2. Run the relevant tests before changing production code when practical.
+Required sequence:
+1. Add or update a test that defines the expected behavior.
+2. Run the test before changing production code.
 3. Implement the production change.
-4. Re-run formatter, linter, tests, and any relevant build commands.
+4. Re-run that test, then run formatter, linter, tests, and any relevant build commands.
+
+For bug fixes, the test in step 1 must reproduce the bug, and step 2 must confirm it fails for the expected reason before you implement the fix.
 
 - If test-first development is impractical, explicitly explain why and describe how the change will be verified instead
 - In the final response, state whether tests were written first and run before the production change, or why that was impractical
 - When speed and process conflict, prioritize correctness and this workflow over speed
 
 ## Verification
-- IMPORTANT: Before reporting completion, verify that changes compile and pass all validation steps. Do not report success based on assumption
+- Before reporting completion, verify that changes compile and pass all validation steps. Do not report success based on assumption
 - After code changes, run validation in order: formatter, linter, tests
 - Prefer project entrypoints (`make`, `just`, scripts) over ad hoc commands
 - When available, use the repo's task runners, scripts, linters, formatters, and test commands
@@ -98,7 +94,6 @@ When uncertain if a change is breaking, ask before committing.
 - Prefer immutability where practical
 - Prefer simple code over unnecessary abstractions
 - Prefer changing code directly over adding backwards-compat layers
-- Run formatters before finishing when feasible. Do not manually format code
 - Do not change formatting in code you are not modifying
 - Prefer descriptive names over comments
 - Do not add comments that restate what the code already says. Assume the reader can read the code
@@ -116,7 +111,7 @@ When uncertain if a change is breaking, ask before committing.
 - Fix root causes, not symptoms
 
 ## When Blocked
-- IMPORTANT: Do not retry the same failing approach more than once. Investigate or ask
+- Do not retry the same failing approach more than once. Investigate or ask
 - If a command fails or tests break unexpectedly, report what you tried and what failed before retrying
 - If your change introduces new test failures, revert and investigate before trying a different approach
 - If required tooling is missing or inaccessible, report it rather than working around it
