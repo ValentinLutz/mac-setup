@@ -2,7 +2,6 @@
 brew "docker"
 brew "docker-buildx"
 brew "docker-compose"
-brew "docker-completion"
 
 # Podman
 brew "podman"
