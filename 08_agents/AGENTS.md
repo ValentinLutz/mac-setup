@@ -97,9 +97,11 @@ When uncertain if a change is breaking, ask before committing.
 - Prefer simple code over unnecessary abstractions
 - Prefer changing code directly over adding backwards-compat layers
 - Do not change formatting in code you are not modifying
-- Prefer descriptive names over comments
+- IMPORTANT: Code should be self-explanatory. Default to writing no comments and make the code clear instead through descriptive names, small functions, and explicit structure
+- Prefer descriptive names over comments. If a comment is needed to explain what code does, rename or restructure the code so the comment is unnecessary
 - Do not add comments that restate what the code already says. Assume the reader can read the code
 - Add a comment only for what the code cannot express: why a non-obvious choice was made, tricky edge cases, workarounds, or external constraints
+- When in doubt, leave the comment out. A comment must earn its place by adding information the code cannot
 - Prefer deleting dead code over commenting it out
 - Do not leave TODOs or FIXMEs without clear context
 - Do not add `// TODO: implement` without actually implementing
