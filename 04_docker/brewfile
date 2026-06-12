@@ -5,7 +5,9 @@ brew "docker-compose"
 
 # Podman
 brew "podman"
-brew "slp/krunkit/krunkit"
+brew "slp/krunkit/libkrun-efi", trusted: true
+brew "slp/krunkit/virglrenderer", trusted: true
+brew "slp/krunkit/krunkit", trusted: true
 cask "podman-desktop"
 
 # Container tooling
