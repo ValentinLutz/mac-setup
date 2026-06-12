@@ -34,11 +34,11 @@ brew "mise"
 brew "awscli"
 brew "ansible"
 brew "opentofu"
-brew "terraform"
+brew "hashicorp/tap/terraform", trusted: true
 brew "terragrunt"
 brew "cdktf"
 brew "tflint"
-brew "hashicorp/tap/packer"
+brew "hashicorp/tap/packer", trusted: true
 brew "atmos"
 cask "session-manager-plugin"
 
@@ -66,7 +66,7 @@ brew "prism-cli"
 # AI / agents
 brew "ollama"
 brew "pi-coding-agent"
-brew "anomalyco/tap/opencode"
+brew "anomalyco/tap/opencode", trusted: true
 cask "claude-code@latest"
 
 # Go
@@ -86,7 +86,7 @@ brew "uv"
 
 # Node
 brew "node"
-brew "oven-sh/bun/bun"
+brew "oven-sh/bun/bun", trusted: true
 
 # Java
 cask "temurin"
