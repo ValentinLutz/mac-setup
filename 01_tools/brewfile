@@ -12,6 +12,7 @@ brew "ncdu"
 brew "tmux"
 brew "gh"
 brew "git-filter-repo"
+cask "monkescience/tap/yeet", trusted: true
 brew "fzf"
 brew "ripgrep"
 brew "fd"
