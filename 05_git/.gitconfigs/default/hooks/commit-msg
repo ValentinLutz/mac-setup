@@ -1,23 +1,21 @@
 #!/bin/sh
 
-# Regex pattern for Conventional Commits
-conventional_commit_regex="^(build|chore|ci|docs|feat|fix|perf|refactor|revert|style|test)(\([a-zA-Z0-9\-]+\))?:\s.+$"
+conventional_commit_regex='^(build|chore|ci|docs|feat|fix|perf|refactor|style|test)(\([a-zA-Z0-9-]+\))?!?:\s.+$'
 
-commit_message=$(cat "$1")
+subject=$(head -n 1 "$1")
 
-if ! echo "$commit_message" | grep -qE "$conventional_commit_regex"; then
-  echo "Error: Commit message does not follow Conventional Commits format."
-  echo "Examples: "
-  echo "  build: changes to build process"
-  echo "  chore: maintenance tasks"
-  echo "  ci: changes to CI configuration"
-  echo "  docs: update documentation"
-  echo "  feat: add new feature"
-  echo "  fix: fix a bug"
-  echo "  perf: improve performance"
-  echo "  refactor: refactor code"
-  echo "  revert: revert a previous commit"
-  echo "  style: improve code style"
-  echo "  test: add or update tests"
+if ! printf '%s' "$subject" | grep -qE "$conventional_commit_regex"; then
+  echo "Error: Commit message does not follow Conventional Commits format." >&2
+  echo "Examples: " >&2
+  echo "  build: changes to build process" >&2
+  echo "  chore: maintenance tasks" >&2
+  echo "  ci: changes to CI configuration" >&2
+  echo "  docs: update documentation" >&2
+  echo "  feat: add new feature" >&2
+  echo "  fix: fix a bug" >&2
+  echo "  perf: improve performance" >&2
+  echo "  refactor: refactor code" >&2
+  echo "  style: improve code style" >&2
+  echo "  test: add or update tests" >&2
   exit 1
 fi
