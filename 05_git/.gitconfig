@@ -1,2 +1,6 @@
 [includeIf "gitdir:~/Projects/"]
     path = ~/.gitconfigs/default/.gitconfig
+[includeIf "gitdir:~/Projects/monkescience/"]
+    path = ~/.gitconfigs/monkescience/.gitconfig
+[includeIf "gitdir:~/Projects/valentinlutz/"]
+    path = ~/.gitconfigs/valentinlutz/.gitconfig

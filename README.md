@@ -85,6 +85,7 @@ Configures Git with custom global settings and local repository hooks.
 - Installs global Git configuration
 - Installs Git hooks (including pre-commit message hooks)
 - Commit hook file: `05_git/.gitconfigs/default/hooks/commit-msg`
+- Applies directory-based identity: repos under `~/Projects/monkescience/` and `~/Projects/valentinlutz/` get their own `user` config, everything else under `~/Projects/` uses the default. Core settings and hooks are shared from the default config
 
 ### 06_ssh
 Provides instructions for SSH key setup and configuration.
@@ -120,8 +121,9 @@ Each module contains configuration files that you can customize before installat
 - `02_iterm2/com.googlecode.iterm2.plist` - iTerm2 preferences
 - `03_zsh/.zshrc` - Zsh shell configuration
 - `04_docker/docker.config.json` - Docker daemon config
-- `05_git/.gitconfig` - Git global configuration
-- `05_git/.gitconfigs/default/` - Git hooks and local configs
+- `05_git/.gitconfig` - Git global configuration and per-directory identity rules
+- `05_git/.gitconfigs/default/` - Default identity, Git hooks, and shared core settings
+- `05_git/.gitconfigs/monkescience/` and `05_git/.gitconfigs/valentinlutz/` - Per-directory identity overrides for repos under `~/Projects/monkescience/` and `~/Projects/valentinlutz/`
 - `06_ssh/config` - SSH client configuration
 - `07_aws/config` - AWS CLI SSO profile configuration
 
