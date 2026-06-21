@@ -17,6 +17,7 @@ This project is organized into modular configuration sections, each handling a s
 | **05_git** | Configures Git with custom settings and commit hooks |
 | **06_ssh** | SSH key setup and configuration for secure connections |
 | **07_aws** | AWS CLI SSO profile configuration |
+| **08_agents** | Deploys the shared agent instruction file and skills to Claude Code, opencode, and pi |
 
 ## Pre-requisites
 
@@ -31,24 +32,25 @@ This project is organized into modular configuration sections, each handling a s
 
 ### Option 1: Install All Modules
 
-Each module must be installed individually in the recommended order:
+Run each module target in the recommended order:
 
 ```bash
-cd 01_tools && bash install.sh && cd ..
-cd 02_iterm2 && bash install.sh && cd ..
-cd 03_zsh && bash install.sh && cd ..
-cd 04_docker && bash install.sh && cd ..
-cd 05_git && bash install.sh && cd ..
-cd 06_ssh && bash install.sh && cd ..
-cd 07_aws && bash install.sh && cd ..
+make tools
+make iterm2
+make zsh
+make docker
+make git
+make ssh
+make aws
+make agents
 ```
 
 ### Option 2: Install Specific Module
 
-Navigate to the desired module and run its install script:
+Run the matching target (see `make help` for the full list):
 
 ```bash
-cd 03_zsh && bash install.sh
+make zsh
 ```
 
 ## Module Details
@@ -103,6 +105,14 @@ Configures AWS CLI SSO profiles for the dev, prod, and root accounts.
 - Installs AWS SSO config for explicit dev, prod, and root profiles
 - Enables `aws sso login --profile dev`, `aws sso login --profile prod`, and `aws sso login --profile root`
 
+### 08_agents
+Deploys a single shared agent instruction file and common skills to multiple coding agents.
+
+**What it does:**
+- Copies `AGENTS.md` verbatim to Claude Code (`~/.claude/CLAUDE.md`), opencode (`~/.config/opencode/AGENTS.md`), and pi (`~/.pi/agent/AGENTS.md`)
+- Installs Claude Code `settings.json` and opencode `opencode.json`
+- Installs shared skills globally for all three agents
+
 ## Backups
 
 All installation scripts automatically create timestamped backups before overwriting configuration files:
@@ -126,6 +136,7 @@ Each module contains configuration files that you can customize before installat
 - `05_git/.gitconfigs/monkescience/` and `05_git/.gitconfigs/valentinlutz/` - Per-directory identity overrides for repos under `~/Projects/monkescience/` and `~/Projects/valentinlutz/`
 - `06_ssh/config` - SSH client configuration
 - `07_aws/config` - AWS CLI SSO profile configuration
+- `08_agents/AGENTS.md` - Shared agent instructions deployed to Claude Code, opencode, and pi
 
 ## Troubleshooting
 
