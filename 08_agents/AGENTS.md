@@ -93,24 +93,25 @@ When uncertain if a change is breaking, ask before committing.
 - If a pushed commit needs fixing, create a new commit
 
 ## Code Principles
+- YAGNI: build only what the current task needs. Do not add abstraction layers, config options, generic interfaces, or extension points for a future that has not arrived. A second concrete use case can justify generalization, one imagined use case does not
+- Prefer simple code over clever abstractions. An abstraction must remove more complexity than it introduces. If a reader has to jump through three layers to find where the work happens, the layers cost more than they save
+- Prefer small, focused functions that do one thing. A function you can describe without "and" is easier to name, test, and reuse than a monolith
+- Prefer explicit over implicit behavior. Hidden side effects, magic defaults, and action at a distance make code hard to reason about. Make data flow and control flow visible at the call site
 - Prefer library-provided utilities over custom implementations
-- Prefer small, focused functions over large monolithic ones
-- Prefer explicit over implicit behavior
-- Prefer immutability where practical
-- Prefer simple code over unnecessary abstractions
-- Prefer changing code directly over adding backwards-compat layers
-- Do not change formatting in code you are not modifying
-- Code should be self-explanatory. Default to no comments, make the code clear through descriptive names, small functions, and explicit structure
-- Comment only what the code cannot express: why a non-obvious choice was made, tricky edge cases, workarounds, or external constraints. When in doubt, leave it out
+- Prefer immutability where practical. Shared mutable state is the source of most concurrency and aliasing bugs, so default to values that do not change after construction
+- Prefer changing code directly over adding backwards-compat layers when callers are in scope and no compatibility contract exists
+- Code should be self-explanatory. Default to no comments and make intent clear through descriptive names, small functions, and explicit structure. A comment that restates the code rots the moment the code changes
+- Comment only what the code cannot express: why a non-obvious choice was made, a tricky edge case, a workaround, or an external constraint. When in doubt, leave it out
 - Prefer deleting dead code over commenting it out
 - No TODOs or FIXMEs without clear context, and never `// TODO: implement` without actually implementing
 - Propagate errors with context rather than swallowing them
-- Prefer returning errors over panicking/throwing
+- Prefer returning errors over panicking/throwing for conditions a caller can reasonably handle
 - Fail fast on programmer errors. Handle gracefully on user or external errors
 - Do not add defensive checks for conditions the type system already prevents
+- Do not change formatting in code you are not modifying
 - When multiple approaches exist, ask which to follow
 - If existing code uses suboptimal patterns, suggest improvements but ask before applying
-- Do not delete code without understanding why it exists
+- Do not delete code without understanding why it exists. Code that looks pointless often handles an edge case you have not hit yet
 - Fix root causes, not symptoms
 
 ## When Blocked
