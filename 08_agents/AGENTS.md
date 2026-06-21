@@ -43,6 +43,15 @@
 - Before sending a response, re-read it and replace every em dash, en dash, and prose semicolon. Treat this as a hard correctness check, not a style preference. Do not touch punctuation inside code
 - Keep responses short. If a sentence does not add information, remove it
 
+## Documentation
+- Default to no docs. A doc must add information the code cannot. If the only honest summary is "this restates the code," cut it
+- Do not document what a signature, type, or name already says, and do not write a guide, tutorial, or README section nobody asked for
+- Delete a doc when the code it describes becomes self-explanatory
+- Pick a fixed, scannable shape per artifact and keep it. README: what it is, install/run, one usage example, then everything else. Guide or tutorial: goal first, then ordered runnable steps, then how to verify it worked. godoc/doc.go: one sentence on what the package is for, then the why and the non-obvious (start a package comment with "Package x ..."). Changelog: grouped by impact (breaking, feature, fix), newest first, written for the consumer not the author
+- Use headings so a reader finds the relevant section without reading the whole page
+- Write at the altitude code cannot reach: why a non-obvious choice was made, the constraint behind it, the edge case it handles. Do not narrate what the code does line by line
+- Prefer a runnable example over a paragraph. Show the smallest working snippet, not a contrived toy. If an example and a paragraph say the same thing, keep the example
+
 ## Testing Workflow
 - For bug fixes, follow a strict test-first workflow. Do not skip steps 1 or 2 unless an automated reproducing test is genuinely impractical
 - For new features, refactors, and other behavior changes, use test-first development when practical
