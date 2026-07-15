@@ -25,7 +25,8 @@
 ## Workflow
 - Inspect the worktree before editing and preserve unrelated changes
 - Load an installed skill before working in a language or framework covered by that skill. If none applies, continue normally
-- When practical, for a bug fix, add or update a reproducing test and confirm it fails for the expected reason before changing production code
+- Carry requested work through implementation and verification. Do not stop after analysis or a partial fix unless blocked or the user asks you to pause
+- For a bug fix, add or update a reproducing test and confirm it fails for the expected reason before changing production code. Skip this only when automated reproduction is genuinely impractical, then explain why and perform the smallest reliable verification
 - For other behavioral changes, use test-first development when practical
 - Do not introduce a testing framework without approval. If no relevant test infrastructure exists, perform the smallest reliable manual verification
 - After code changes, run available project formatter, linter, tests, and relevant build commands. Prefer project entrypoints, start with scoped checks, then run full checks when practical
@@ -57,7 +58,6 @@
 - When asking a question, provide concrete choices and mark the recommended option when one exists
 
 ## Git
-- In a git repository, remove and move tracked files with `git rm` and `git mv` so git records the change. Use plain `rm` and `mv` only for untracked files
 - When a commit is explicitly requested, inspect status, diff, and recent history first, then stage only relevant files
 - Follow repository commit conventions. Otherwise use Conventional Commits
 - Keep commits focused, omit `Co-Authored-By`, and add a body only when it provides essential context
