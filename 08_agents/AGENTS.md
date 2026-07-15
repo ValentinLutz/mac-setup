@@ -100,8 +100,10 @@ When uncertain if a change is breaking, ask before committing.
 - Prefer library-provided utilities over custom implementations
 - Prefer immutability where practical. Shared mutable state is the source of most concurrency and aliasing bugs, so default to values that do not change after construction
 - Prefer changing code directly over adding backwards-compat layers when callers are in scope and no compatibility contract exists
-- Code should be self-explanatory. Default to no comments and make intent clear through descriptive names, small functions, and explicit structure. A comment that restates the code rots the moment the code changes
-- Comment only what the code cannot express: why a non-obvious choice was made, a tricky edge case, a workaround, or an external constraint. When in doubt, leave it out
+- Default to no comments. Rewrite unclear code with descriptive names, small functions, and explicit structure before adding prose
+- Add a comment only when essential context cannot be expressed in code, such as a non-obvious tradeoff, tricky edge case, workaround, or external constraint
+- Do not restate code, label obvious blocks, narrate steps, or add banner and section-divider comments. Cut these first
+- Keep comments concise. If a comment explains how the code works, refactor the code instead
 - Prefer deleting dead code over commenting it out
 - No TODOs or FIXMEs without clear context, and never `// TODO: implement` without actually implementing
 - Propagate errors with context rather than swallowing them
