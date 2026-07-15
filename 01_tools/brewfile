@@ -95,7 +95,6 @@ brew "gradle"
 
 # IDEs & editors
 cask "visual-studio-code"
-cask "cursor"
 cask "jetbrains-toolbox"
 
 # Database & API clients
