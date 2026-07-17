@@ -6,6 +6,31 @@
   "enabledPlugins": {
     "gopls-lsp@claude-plugins-official": true
   },
-  "effortLevel": "xhigh",
-  "tui": "fullscreen"
+  "effortLevel": "high",
+  "feedbackSurveyRate": 0,
+  "env": {
+    "CLAUDE_AUTOCOMPACT_PCT_OVERRIDE": "85"
+  },
+  "tui": "fullscreen",
+  "autoMemoryEnabled": false,
+  "autoDreamEnabled": false,
+  "disableWorkflows": true,
+  "disableArtifact": true,
+  "includeGitInstructions": false,
+  "skillOverrides": {
+    "deep-research": "user-invocable-only",
+    "dataviz": "off",
+    "artifact-design": "off",
+    "artifact-capabilities": "off",
+    "keybindings-help": "user-invocable-only",
+    "simplify": "user-invocable-only",
+    "fewer-permission-prompts": "user-invocable-only",
+    "loop": "user-invocable-only",
+    "schedule": "user-invocable-only",
+    "claude-api": "user-invocable-only",
+    "run": "user-invocable-only",
+    "init": "user-invocable-only",
+    "review": "user-invocable-only",
+    "security-review": "user-invocable-only"
+  }
 }
