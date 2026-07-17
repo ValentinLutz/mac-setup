@@ -35,6 +35,13 @@ cp "${claude_settings_file}" "$SCRIPT_DIR/${timestamp}.claude.settings.json.back
 echo "Updating ${claude_settings_file}"
 cp "$SCRIPT_DIR/claude/settings.json" "${claude_settings_file}"
 
+# Update Claude Code status line script
+claude_statusline_file=~/.claude/statusline-command.sh
+echo "Creating backup of ${claude_statusline_file}"
+cp "${claude_statusline_file}" "$SCRIPT_DIR/${timestamp}.claude.statusline-command.sh.backup" 2>/dev/null
+echo "Updating ${claude_statusline_file}"
+cp "$SCRIPT_DIR/claude/statusline-command.sh" "${claude_statusline_file}"
+
 # Update pi AGENTS.md
 pi_agents_file=~/.pi/agent/AGENTS.md
 echo "Creating backup of ${pi_agents_file}"
