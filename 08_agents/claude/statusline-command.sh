@@ -1,30 +1,44 @@
 #!/bin/bash
 # Claude Code status line, three sections across the full terminal width (COLUMNS):
-#   left: cwd | git branch (dirty marker)   center: model   right: context tokens (%) + cost
+#   left: cwd · git branch (dirty/sync markers)   center: model (effort)   right: context · lines · cost · duration
 set -euo pipefail
 
-# UTF-8 locale so ${#var} counts characters (the ✗ marker), not bytes
+# UTF-8 locale so ${#var} counts characters (✗, ·, ↑, ↓), not bytes
 export LC_ALL=en_US.UTF-8 2>/dev/null || true
 
 input=$(cat)
 
-model=$(echo "$input" | jq -r '.model.display_name')
-dir=$(echo "$input" | jq -r '.workspace.current_dir')
+# One jq pass for every field, empty string when absent. Unit separator (\x1f)
+# instead of tab because read collapses runs of IFS whitespace, eating empty fields
+IFS=$'\x1f' read -r model dir used_tokens size_tokens pct cost_usd effort lines_added lines_removed duration_ms <<EOF
+$(jq -r '[
+  (.model.display_name // ""),
+  (.workspace.current_dir // ""),
+  (.context_window.total_input_tokens // ""),
+  (.context_window.context_window_size // ""),
+  (.context_window.used_percentage // ""),
+  (.cost.total_cost_usd // ""),
+  (.effort.level // ""),
+  (.cost.total_lines_added // ""),
+  (.cost.total_lines_removed // ""),
+  (.cost.total_duration_ms // "")
+] | map(tostring) | join("\u001f")' <<< "$input")
+EOF
+
 dir_display="${dir/#$HOME/\~}"
 
 RESET='\033[0m'
-SEP='\033[2m'
-MODEL_COLOR='\033[2;36m'
-DIR_COLOR='\033[2;34m'
-BRANCH_COLOR='\033[2;32m'
-DIRTY_COLOR='\033[2;31m'
-CTX_COLOR='\033[2;33m'
-COST_COLOR='\033[2;35m'
-EFFORT_COLOR='\033[2m'
-ADD_COLOR='\033[2;32m'
-DEL_COLOR='\033[2;31m'
-SYNC_COLOR='\033[2;33m'
-DUR_COLOR='\033[2m'
+DIM='\033[2m'
+DIR_COLOR='\033[34m'
+BRANCH_COLOR='\033[32m'
+DIRTY_COLOR='\033[31m'
+SYNC_COLOR='\033[33m'
+MODEL_COLOR='\033[36m'
+COST_COLOR='\033[35m'
+ADD_COLOR='\033[32m'
+DEL_COLOR='\033[31m'
+
+SEP=" ${DIM}·${RESET} "
 
 branch=""
 dirty=""
@@ -54,33 +68,33 @@ fmt_tokens() {
   }'
 }
 
+# Context color tracks usage: green < 40%, yellow 40-69%, red >= 70% (autocompact at 85%)
 ctx=""
-used_tokens=$(echo "$input" | jq -r '.context_window.total_input_tokens // empty')
-size_tokens=$(echo "$input" | jq -r '.context_window.context_window_size // empty')
-pct=$(echo "$input" | jq -r '.context_window.used_percentage // empty')
+CTX_COLOR='\033[33m'
+if [ -n "$pct" ]; then
+  pct_int=$(printf '%.0f' "$pct")
+  if [ "$pct_int" -ge 70 ]; then
+    CTX_COLOR='\033[31m'
+  elif [ "$pct_int" -lt 40 ]; then
+    CTX_COLOR='\033[32m'
+  fi
+fi
 if [ -n "$used_tokens" ] && [ -n "$size_tokens" ]; then
   ctx="$(fmt_tokens "$used_tokens")/$(fmt_tokens "$size_tokens")"
-  [ -n "$pct" ] && ctx="$ctx ($(printf '%.0f' "$pct")%)"
+  [ -n "$pct" ] && ctx="$ctx ${pct_int}%"
 elif [ -n "$pct" ]; then
-  ctx="$(printf '%.0f' "$pct")%"
+  ctx="${pct_int}%"
 fi
 
 cost=""
-cost_usd=$(echo "$input" | jq -r '.cost.total_cost_usd // empty')
 [ -n "$cost_usd" ] && cost="\$$(printf '%.2f' "$cost_usd")"
 
-# Absent when the model does not support the effort parameter
-effort=$(echo "$input" | jq -r '.effort.level // empty')
-
 lines=""
-lines_added=$(echo "$input" | jq -r '.cost.total_lines_added // empty')
-lines_removed=$(echo "$input" | jq -r '.cost.total_lines_removed // empty')
 if [ -n "$lines_added" ] || [ -n "$lines_removed" ]; then
-  lines="${ADD_COLOR}+${lines_added:-0}${RESET}${SEP}/${RESET}${DEL_COLOR}-${lines_removed:-0}${RESET}"
+  lines="${ADD_COLOR}+${lines_added:-0}${RESET}${DIM}/${RESET}${DEL_COLOR}-${lines_removed:-0}${RESET}"
 fi
 
 duration=""
-duration_ms=$(echo "$input" | jq -r '.cost.total_duration_ms // empty')
 if [ -n "$duration_ms" ]; then
   secs=$(printf '%.0f' "$duration_ms")
   secs=$((secs / 1000))
@@ -96,17 +110,17 @@ fi
 # Sections
 left="${DIR_COLOR}${dir_display}${RESET}"
 if [ -n "$branch" ]; then
-  left="${left} ${SEP}|${RESET} ${BRANCH_COLOR}${branch}${DIRTY_COLOR}${dirty}${RESET}${SYNC_COLOR}${sync}${RESET}"
+  left="${left}${SEP}${BRANCH_COLOR}${branch}${RESET}${DIRTY_COLOR}${dirty}${RESET}${SYNC_COLOR}${sync}${RESET}"
 fi
 
 center="${MODEL_COLOR}${model}${RESET}"
-[ -n "$effort" ] && center="${center} ${EFFORT_COLOR}(${effort})${RESET}"
+[ -n "$effort" ] && center="${center} ${DIM}(${effort})${RESET}"
 
 right_parts=()
 [ -n "$ctx" ] && right_parts+=("${CTX_COLOR}${ctx}${RESET}")
 [ -n "$lines" ] && right_parts+=("$lines")
 [ -n "$cost" ] && right_parts+=("${COST_COLOR}${cost}${RESET}")
-[ -n "$duration" ] && right_parts+=("${DUR_COLOR}${duration}${RESET}")
+[ -n "$duration" ] && right_parts+=("${DIM}${duration}${RESET}")
 
 right=""
 for part in "${right_parts[@]:-}"; do
@@ -114,7 +128,7 @@ for part in "${right_parts[@]:-}"; do
   if [ -z "$right" ]; then
     right="$part"
   else
-    right="${right} ${SEP}|${RESET} ${part}"
+    right="${right}${SEP}${part}"
   fi
 done
 
@@ -143,6 +157,6 @@ if [ "$cols" -gt 0 ]; then
 fi
 
 # No width info or terminal too narrow: plain separators
-out="$left ${SEP}|${RESET} $center"
-[ -n "$right" ] && out="$out ${SEP}|${RESET} $right"
+out="${left}${SEP}${center}"
+[ -n "$right" ] && out="${out}${SEP}${right}"
 printf '%b' "$out"
