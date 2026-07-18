@@ -68,6 +68,7 @@ brew "ollama"
 brew "pi-coding-agent"
 brew "anomalyco/tap/opencode", trusted: true
 cask "claude-code@latest"
+cask "codex"
 
 # Go
 brew "go"
