@@ -1,5 +1,6 @@
 **/*.lock.json
 **/*.backup
 **/backups/
+.DS_Store
 
 .idea
