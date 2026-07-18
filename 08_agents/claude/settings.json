@@ -7,6 +7,20 @@
     "gopls-lsp@claude-plugins-official": true
   },
   "effortLevel": "high",
+  "model": "claude-fable-5[1m]",
+  "permissions": {
+    "deny": [
+      "CronCreate",
+      "CronList",
+      "CronDelete",
+      "RemoteTrigger",
+      "NotebookEdit",
+      "DesignSync",
+      "SendMessage",
+      "PushNotification",
+      "ShareOnboardingGuide"
+    ]
+  },
   "statusLine": {
     "type": "command",
     "command": "bash ~/.claude/statusline-command.sh"
@@ -30,7 +44,7 @@
     "simplify": "user-invocable-only",
     "fewer-permission-prompts": "user-invocable-only",
     "loop": "user-invocable-only",
-    "schedule": "user-invocable-only",
+    "schedule": "off",
     "claude-api": "user-invocable-only",
     "run": "user-invocable-only",
     "init": "user-invocable-only",
