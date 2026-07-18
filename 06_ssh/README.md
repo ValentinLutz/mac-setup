@@ -7,7 +7,7 @@
 
 2. **Add Key to Server**
     ```shell
-    ssh-copy-id -i "~/.ssh/github.com" vlutz@insert_server_hostname
+    ssh-copy-id -i "$HOME/.ssh/github.com.pub" vlutz@insert_server_hostname
     ```
 
 3. **Add Key to GitHub**
