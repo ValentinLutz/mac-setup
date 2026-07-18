@@ -2,6 +2,7 @@
 brew "docker"
 brew "docker-buildx"
 brew "docker-compose"
+brew "docker-credential-helper"
 
 # Podman
 brew "podman"
@@ -11,5 +12,6 @@ brew "slp/krunkit/krunkit", trusted: true
 cask "podman-desktop"
 
 # Container tooling
+brew "jq"
 brew "hadolint"
 brew "dive"
