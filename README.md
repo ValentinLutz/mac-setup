@@ -17,7 +17,7 @@ This project is organized into modular configuration sections, each handling a s
 | **05_git** | Configures Git with custom settings and commit hooks |
 | **06_ssh** | SSH key setup and configuration for secure connections |
 | **07_aws** | AWS CLI SSO profile configuration |
-| **08_agents** | Deploys the shared agent instruction file and skills to Claude Code, opencode, and pi |
+| **08_agents** | Deploys the shared agent instruction file and skills to Claude Code, Codex, opencode, and pi |
 
 ## Pre-requisites
 
@@ -109,9 +109,10 @@ Configures AWS CLI SSO profiles for the dev, prod, and root accounts.
 Deploys a single shared agent instruction file and common skills to multiple coding agents.
 
 **What it does:**
-- Copies `AGENTS.md` verbatim to Claude Code (`~/.claude/CLAUDE.md`), opencode (`~/.config/opencode/AGENTS.md`), and pi (`~/.pi/agent/AGENTS.md`)
+- Copies `AGENTS.md` verbatim to Claude Code, Codex, opencode, and pi
+- Honors `CLAUDE_CONFIG_DIR`, `CODEX_HOME`, `XDG_CONFIG_HOME`, and `PI_CODING_AGENT_DIR`, with each agent's standard user directory as the fallback
 - Installs Claude Code `settings.json` and opencode `opencode.json`
-- Installs shared skills globally for all three agents
+- Installs shared skills globally. Codex discovers their shared copies in `~/.agents/skills`
 
 ## Backups
 
@@ -136,7 +137,7 @@ Each module contains configuration files that you can customize before installat
 - `05_git/.gitconfigs/monkescience/` and `05_git/.gitconfigs/valentinlutz/` - Per-directory identity overrides for repos under `~/Projects/monkescience/` and `~/Projects/valentinlutz/`
 - `06_ssh/config` - SSH client configuration
 - `07_aws/config` - AWS CLI SSO profile configuration
-- `08_agents/AGENTS.md` - Shared agent instructions deployed to Claude Code, opencode, and pi
+- `08_agents/AGENTS.md` - Shared agent instructions deployed to Claude Code, Codex, opencode, and pi
 
 ## Troubleshooting
 
