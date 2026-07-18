@@ -1,4 +1,5 @@
 **/*.lock.json
 **/*.backup
+**/backups/
 
 .idea
