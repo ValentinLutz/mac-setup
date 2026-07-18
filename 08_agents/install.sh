@@ -59,5 +59,5 @@ echo "Updating ${codex_agents_file}"
 cp "$SCRIPT_DIR/AGENTS.md" "${codex_agents_file}"
 
 # Install shared skills globally for supported agents.
-npx skills@1.5.7 add anthropics/skills#main --skill skill-creator -g -a claude-code -a opencode -a pi -y
-npx skills@1.5.7 add monkescience/skills#main -g -a claude-code -a opencode -a pi -y
+npx skills@1.5.7 add anthropics/skills#main --skill skill-creator -g -a claude-code -a opencode -a pi -a codex -y
+npx skills@1.5.7 add monkescience/skills#main -g -a claude-code -a opencode -a pi -a codex -y
