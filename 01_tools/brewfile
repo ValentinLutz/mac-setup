@@ -36,7 +36,6 @@ brew "ansible"
 brew "opentofu"
 brew "hashicorp/tap/terraform", trusted: true
 brew "terragrunt"
-brew "cdktf"
 brew "tflint"
 brew "hashicorp/tap/packer", trusted: true
 brew "atmos"
@@ -70,29 +69,16 @@ brew "anomalyco/tap/opencode", trusted: true
 cask "claude-code@latest"
 cask "codex"
 
-# Go
-brew "go"
+# Go tooling
 brew "mage"
 brew "golangci-lint"
 brew "sqlc"
 brew "goreleaser"
 
-# Rust
-brew "rustup"
-
-# Python
-brew "python3"
-brew "pipx"
+# Python tooling
 brew "uv"
 
-# Node
-brew "node"
-brew "oven-sh/bun/bun", trusted: true
-
-# Java
-cask "temurin"
-brew "maven"
-brew "gradle"
+# Language runtimes and build tools are managed by mise in install.sh
 
 # IDEs & editors
 cask "visual-studio-code"
