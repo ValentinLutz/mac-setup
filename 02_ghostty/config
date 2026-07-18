@@ -1,0 +1,37 @@
+font-family = Source Code Pro
+font-size = 14
+
+background = #000000
+foreground = #fdf9f3
+background-opacity = 0.9
+background-blur = true
+
+macos-titlebar-style = tabs
+window-save-state = always
+
+clipboard-paste-protection = true
+
+palette = 0=#000000
+palette = 1=#f92672
+palette = 2=#a6e22e
+palette = 3=#e6db71
+palette = 4=#6593ef
+palette = 5=#fd5ff0
+palette = 6=#66d9ef
+palette = 7=#fdf9f3
+palette = 8=#838e8f
+palette = 9=#eb6288
+palette = 10=#a9dc76
+palette = 11=#f4d966
+palette = 12=#77a4e8
+palette = 13=#eb8ae4
+palette = 14=#78dce8
+palette = 15=#fdf9f3
+
+cursor-style = block
+cursor-style-blink = false
+cursor-color = #bbbbbb
+cursor-text = #ffffff
+
+selection-background = #b5d5ff
+selection-foreground = #000000

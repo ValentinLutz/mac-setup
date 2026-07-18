@@ -1,11 +1,11 @@
-.PHONY: help tools iterm2 zsh docker git ssh aws agents
+.PHONY: help tools ghostty zsh docker git ssh aws agents
 
 help:
 	@echo "Usage: make <target>"
 	@echo ""
 	@echo "Targets:"
 	@echo "  tools      Install Homebrew packages"
-	@echo "  iterm2     Configure iTerm2"
+	@echo "  ghostty    Configure Ghostty"
 	@echo "  zsh        Install oh-my-zsh and zsh config"
 	@echo "  docker     Configure Docker"
 	@echo "  git        Configure Git"
@@ -16,8 +16,8 @@ help:
 tools:
 	bash 01_tools/install.sh
 
-iterm2:
-	bash 02_iterm2/install.sh
+ghostty:
+	bash 02_ghostty/install.sh
 
 zsh:
 	bash 03_zsh/install.sh

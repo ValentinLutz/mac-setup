@@ -11,7 +11,7 @@ This project is organized into modular configuration sections, each handling a s
 | Module | Purpose |
 |--------|---------|
 | **01_tools** | Installs essential development tools via Homebrew |
-| **02_iterm2** | Configures iTerm2 terminal emulator with custom settings |
+| **02_ghostty** | Configures Ghostty terminal emulator with custom settings |
 | **03_zsh** | Sets up Zsh shell with oh-my-zsh framework and custom configuration |
 | **04_docker** | Installs and configures Docker for containerization |
 | **05_git** | Configures Git with custom settings and commit hooks |
@@ -36,7 +36,7 @@ Run each module target in the recommended order:
 
 ```bash
 make tools
-make iterm2
+make ghostty
 make zsh
 make docker
 make git
@@ -62,10 +62,8 @@ Installs core development tools via Homebrew based on the `brewfile` manifest.
 
 Language runtimes and build tools are installed globally through mise. This includes Go, Rust, Python, Node.js LTS, Bun, Java, Maven, and Gradle.
 
-### 02_iterm2
-Configures iTerm2 terminal with the provided preferences profile (`com.googlecode.iterm2.plist`).
-
-**Note:** Existing iTerm2 settings will be preserved before applying new configuration.
+### 02_ghostty
+Installs the Ghostty terminal and applies the provided configuration (`config`) to `~/.config/ghostty/config`. An existing configuration is backed up first.
 
 ### 03_zsh
 Installs oh-my-zsh and applies custom Zsh configuration.
@@ -136,7 +134,7 @@ Installation scripts create timestamped backups before overwriting existing conf
 Each module contains configuration files that you can customize before installation:
 
 - `01_tools/brewfile` - List of Homebrew packages
-- `02_iterm2/com.googlecode.iterm2.plist` - iTerm2 preferences
+- `02_ghostty/config` - Ghostty terminal configuration
 - `03_zsh/.zshrc` - Zsh shell configuration
 - `04_docker/docker.config.json` - Base Docker CLI configuration
 - `05_git/.gitconfig` - Git global configuration and per-directory identity rules
