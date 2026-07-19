@@ -36,7 +36,7 @@ brew "ansible"
 brew "opentofu"
 brew "hashicorp/tap/terraform", trusted: true
 brew "terragrunt"
-brew "tflint"
+cask "terraform-linters/tap/tflint", trusted: true
 brew "hashicorp/tap/packer", trusted: true
 brew "atmos"
 cask "session-manager-plugin"
