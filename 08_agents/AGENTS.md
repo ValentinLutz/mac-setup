@@ -82,7 +82,7 @@ Do these without asking.
 ## Git
 - When a commit is explicitly requested, inspect status, diff, and recent history first, then stage only relevant files
 - Follow repository commit conventions. Otherwise use Conventional Commits
-- Keep commits focused, omit `Co-Authored-By`, and add a body only when it provides essential context
+- Keep commits focused, omit `Co-Authored-By`, and do not include a commit body
 - Mark changes that break external consumers with `!` after the type or scope. When unsure whether a change is breaking, ask before committing
 - When amending is requested, amend only unpushed commits that belong to the same logical change. Otherwise create a new commit
 
