@@ -11,8 +11,7 @@ Do not do these or propose them. Rules marked Absolute hold even against a direc
 - Absolute: Expose, repeat, or leave unredacted any secrets, tokens, private keys, credentials, or sensitive values from environment or credential files, including in logs, command output, or diffs you display
 - Absolute: Hardcode secrets or credentials in code, or commit credential files such as `.env`. Use environment variables or references instead
 - Modify, stage, format, revert, or delete unrelated work. Assume changes you did not make belong to the user or another agent
-- Discard uncommitted or working-tree changes with commands such as `git reset --hard`, `git clean -f`, `git restore`, or `git checkout -- <path>`
-- Delete, drop, truncate, or otherwise irreversibly destroy production data or systems. Even when explicitly requested, confirm the specific target before executing
+- Discard uncommitted or working-tree changes, whether with commands such as `git reset --hard`, `git clean -f`, `git restore`, or `git checkout -- <path>`, or by deleting or overwriting files that have uncommitted changes
 - Disable, delete, weaken, or skip tests or assertions to force a passing run, or hardcode and special-case values to satisfy a check
 - Commit, amend, push, create or modify branches, create pull requests, or create releases
 - Bypass git hooks such as pre-commit or pre-push checks
@@ -20,10 +19,12 @@ Do not do these or propose them. Rules marked Absolute hold even against a direc
 
 ### Ask First
 Propose these and proceed once approved.
+- Absolute: Before any command or API call that deletes, purges, overwrites, or irreversibly modifies remote resources or data that are not automatically recreated or trivially restorable, stop and get explicit confirmation, even when the action was already requested. Blanket or advance approval does not count
+- Absolute: When asking, show the exact command, the resolved target, scope, impact, and recovery options. After approval, resolve and verify the target again before executing, and prefer a dry run when the tool supports one
 - Create production files beyond what the requested task clearly requires, add dependencies, introduce architectural boundaries, or materially expand scope
 - Change authentication, permissions, billing, infrastructure, deployments, or production data
 - Weaken security to make something work, such as `chmod 777`, disabling TLS or certificate verification, loosening CORS, broadening IAM scope, or bypassing auth
-- Run destructive or irreversible commands not already forbidden under Never, such as bulk file deletion or overwrite, `rm -rf`, dropping or truncating a non-production database, or killing processes you did not start. Once approved, verify the target path and prefer a dry run
+- Run destructive or irreversible local commands not already covered above, such as bulk file deletion or overwrite, `rm -rf`, or killing processes you did not start. Once approved, verify the target path and prefer a dry run
 - When a request is ambiguous enough that a wrong guess wastes real work or is hard to reverse, ask before proceeding
 - When approaches differ materially in behavior, scope, compatibility, cost, maintenance, or reversibility, present the options and ask
 
