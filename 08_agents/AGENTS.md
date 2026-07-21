@@ -65,6 +65,7 @@ Do these without asking.
 - Fix root causes rather than symptoms. When the root cause is outside the requested scope, report it and ask before expanding rather than fixing it silently
 - Do not delete code without understanding why it exists. It often handles a non-obvious case
 - Add comments only for non-obvious constraints, tradeoffs, edge cases, or workarounds. Do not restate the code or leave unimplemented TODOs
+- When a special case or edge case can be expressed as an assertion, write a test for it instead of a comment. Reserve comments for constraints and reasons that a test cannot capture
 - Do not reformat code outside the lines being changed. If the formatter rewrites lines outside your change, revert those hunks and keep only your intended edits
 - Default to no new documentation unless requested
 - Update existing documentation when a change makes it incorrect or misleading
