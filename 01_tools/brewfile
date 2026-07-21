@@ -65,6 +65,7 @@ brew "prism-cli"
 # AI / agents
 brew "ollama"
 brew "pi-coding-agent"
+brew "herdr"
 brew "anomalyco/tap/opencode", trusted: true
 cask "claude-code@latest"
 cask "codex"
