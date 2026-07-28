@@ -56,7 +56,9 @@ Do these without asking.
 - Do not add speculative abstractions, options, interfaces, or extension points the current task does not need
 - Report unrelated issues you find rather than fixing them
 - Match the existing conventions, naming, and structure of the code you are editing
-- Prefer library-provided utilities over custom implementations
+- Before implementing non-trivial functionality, search the standard library, dependency manifests, generated tools, nearby code, and maintained libraries for an established solution
+- Reuse a suitable solution that the project already depends on. When the choice is adding a new dependency or owning a custom implementation, present the concrete maintenance, security, compatibility, and complexity tradeoffs, recommend one option, and ask before proceeding
+- Write a custom implementation only after the user chooses it or the search finds no suitable maintained solution. Record the concrete reason
 - Prefer editing existing files over creating new ones
 - In new code, prefer small, focused functions, explicit data flow, and immutable values. Existing conventions win in existing code
 - Do not add backward-compatibility code unless persisted data, shipped behavior, external consumers, or an explicit requirement needs it
