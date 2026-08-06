@@ -33,7 +33,7 @@
   "tui": "fullscreen",
   "autoMemoryEnabled": false,
   "autoDreamEnabled": false,
-  "disableWorkflows": false,
+  "disableWorkflows": true,
   "disableArtifact": true,
   "includeGitInstructions": false,
   "skillOverrides": {
