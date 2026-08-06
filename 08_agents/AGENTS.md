@@ -15,6 +15,7 @@ Do not do these or propose them. Rules marked Absolute hold even against a direc
 - Disable, delete, weaken, or skip tests or assertions to force a passing run, or hardcode and special-case values to satisfy a check
 - Commit, amend, push, create or modify branches, create pull requests, or create releases
 - Bypass git hooks such as pre-commit or pre-push checks
+- Write a comment that restates the code, narrates the change, or names the task, prompt, plan, ticket, or ADR
 - Pin a dependency, image, or chart version from memory. Verify versions against an authoritative source before adding them
 
 ### Ask First
@@ -66,12 +67,13 @@ Do these without asking.
 - Do not add checks for conditions already prevented by the type system
 - Fix root causes rather than symptoms. When the root cause is outside the requested scope, report it and ask before expanding rather than fixing it silently
 - Do not delete code without understanding why it exists. It often handles a non-obvious case
-- Add comments only for non-obvious constraints, tradeoffs, edge cases, or workarounds. Do not restate the code or leave unimplemented TODOs
-- When a special case or edge case can be expressed as an assertion, write a test for it instead of a comment. Reserve comments for constraints and reasons that a test cannot capture
 - Do not reformat code outside the lines being changed. If the formatter rewrites lines outside your change, revert those hunks and keep only your intended edits
+
+## Comments and Documentation
+Default to zero comments. Explain why, never what. No design autobiography, no revision history. Never reference the task, prompt, plan, ticket, ADR, or yourself in code. The rare exception is a reason the code cannot carry, such as an upstream bug or a protocol quirk. Re-read every comment in your diff before finishing and delete each one you cannot justify.
+- When an edge case can be expressed as an assertion, write a test for it instead of a comment
 - Default to no new documentation unless requested
 - Update existing documentation when a change makes it incorrect or misleading
-- Document why a non-obvious decision exists, not what the code already says
 - Prefer the smallest runnable example over an equivalent paragraph
 
 ## Communication
