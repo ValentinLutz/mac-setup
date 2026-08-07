@@ -1,0 +1,18 @@
+cpu: 6
+memory: 8
+disk: 64
+
+vmType: vz
+rosetta: false
+
+runtime: docker
+
+mounts:
+  - location: "~"
+    writable: true
+
+docker:
+  log-driver: json-file
+  log-opts:
+    max-size: 100m
+    max-file: "3"

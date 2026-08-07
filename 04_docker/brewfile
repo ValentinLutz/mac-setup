@@ -4,12 +4,8 @@ brew "docker-buildx"
 brew "docker-compose"
 brew "docker-credential-helper"
 
-# Podman
-brew "podman"
-brew "slp/krunkit/libkrun-efi", trusted: true
-brew "slp/krunkit/virglrenderer", trusted: true
-brew "slp/krunkit/krunkit", trusted: true
-cask "podman-desktop"
+# Container runtime VM
+brew "colima"
 
 # Container tooling
 brew "jq"

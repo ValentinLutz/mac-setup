@@ -75,18 +75,20 @@ Installs oh-my-zsh and applies custom Zsh configuration.
 - Provides instructions to reload configuration
 
 ### 04_docker
-Installs the Docker CLI, Podman, Podman Desktop, and supporting container tools. The installer backs up any existing `~/.docker/config.json` and replaces it with `docker.config.json`, which stores registry credentials in the macOS Keychain via `docker-credential-osxkeychain` and adds the Homebrew CLI plugin directory. Run `docker login <registry>` again after installation to move credentials into the Keychain.
+Installs the Docker CLI, Colima, and supporting container tools. The installer backs up any existing `~/.docker/config.json` and replaces it with `docker.config.json`, which stores registry credentials in the macOS Keychain via `docker-credential-osxkeychain` and adds the Homebrew CLI plugin directory. Run `docker login <registry>` again after installation to move credentials into the Keychain.
 
-**Configuration file:** `docker.config.json`
+It also backs up and replaces `~/.colima/_templates/default.yaml` with `colima.yaml`, which Colima applies to every new instance.
 
-Podman requires a Linux virtual machine on macOS. Initialize and start the default machine once after installation:
+**Configuration files:** `docker.config.json`, `colima.yaml`
+
+Docker requires a Linux virtual machine on macOS. Start it once after installation:
 
 ```bash
-podman machine init --now
-podman info
+colima start
+docker info
 ```
 
-For later sessions, start an existing stopped machine with `podman machine start`.
+Colima registers a `colima` Docker context and points the CLI at it, so `docker`, `docker compose`, and `docker buildx` work without further setup. For later sessions, start the stopped VM with `colima start` and shut it down with `colima stop`.
 
 ### 05_git
 Configures Git with custom global settings and local repository hooks.
@@ -137,6 +139,7 @@ Each module contains configuration files that you can customize before installat
 - `02_ghostty/config` - Ghostty terminal configuration
 - `03_zsh/.zshrc` - Zsh shell configuration
 - `04_docker/docker.config.json` - Base Docker CLI configuration
+- `04_docker/colima.yaml` - Colima VM template applied to new instances
 - `05_git/.gitconfig` - Git global configuration and per-directory identity rules
 - `05_git/.gitconfigs/default/` - Default identity, Git hooks, and shared core settings
 - `05_git/.gitconfigs/monkescience/` and `05_git/.gitconfigs/valentinlutz/` - Per-directory identity overrides for repos under `~/Projects/monkescience/` and `~/Projects/valentinlutz/`
