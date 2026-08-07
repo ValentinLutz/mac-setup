@@ -87,7 +87,7 @@ cask "jetbrains-toolbox"
 
 # Database & API clients
 cask "dbeaver-community"
-cask "insomnia"
+cask "bruno"
 
 # Browsers
 cask "firefox"
