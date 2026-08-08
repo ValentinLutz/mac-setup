@@ -68,4 +68,4 @@ cp "$SCRIPT_DIR/AGENTS.md" "${codex_agents_file}"
 # Install shared skills globally for supported agents.
 mise exec -- npx skills@1.5.22 add anthropics/skills#main --skill skill-creator -g -a claude-code -a opencode -a pi -a codex -y
 mise exec -- npx skills@1.5.22 add monkescience/skills#main -g -a claude-code -a opencode -a pi -a codex -y
-mise exec -- npx skills@1.5.22 add mattpocock/skills#main --skill improve-codebase-architecture codebase-design -g -a claude-code -a opencode -a pi -a codex -y
+mise exec -- npx skills@1.5.22 add mattpocock/skills#main --skill improve-codebase-architecture codebase-design grilling grill-me diagnosing-bugs handoff -g -a claude-code -a opencode -a pi -a codex -y
