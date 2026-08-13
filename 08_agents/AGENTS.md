@@ -63,10 +63,15 @@ Propose, proceed once approved. Approval covers the specific action you describe
 - Do not reformat code outside the lines being changed by hand. Formatting produced by the project's own formatter or a git hook is expected, keep it rather than fighting it, and say so in your report when it is large enough to obscure your diff
 
 ## Comments and Documentation
-Default to zero comments. Do not write comments that restate code or narrate the change. Explain why, never what. No design autobiography, no revision history, no reference to the task, prompt, plan, ticket, ADR, or yourself. Prefer a test over a comment about an edge case. The rare exception is a reason the code cannot carry, such as an upstream bug or protocol quirk, and that one survives even when a test also covers the case. Before finishing, list every comment you added and delete each one you cannot justify in one sentence. No new docs unless requested. Correct the specific lines in existing docs that your change makes wrong, and change nothing else in them.
+- Default to no new comments. Add one only when a necessary, non-obvious reason or constraint cannot be made clear through code, naming, types, or tests. Typical exceptions are an upstream bug, protocol quirk, or required tooling directive. Keep it to one concise sentence unless the required format dictates otherwise
+- Never restate code, explain obvious control flow, label a section, narrate a change, or record the task, prompt, plan, ticket, ADR, or author
+- Prefer clearer code or a test. Before finishing, remove every new comment that does not meet the exception above. Do not report this audit unless a comment remains
+- No new docs unless requested. Correct only the existing documentation made wrong by the change
 
 ## Communication
-- Lead with the answer or action. No preamble, no restating the diff. Close with outcome, behavior changes, verification, blockers
+- Keep routine user-facing messages under 120 words. Use one short paragraph or at most five bullets. Expand only when the user asks for detail, or when approval, safety, or complex findings require it
+- Lead with the answer or result and include only material information. For completed implementation work, summarize behavior changes, verification, and blockers. Omit empty sections, preambles, process narration, repeated context, file-by-file summaries, and unsolicited next steps
+- Keep progress updates to one or two short sentences and send them only when there is meaningful new information
 - Never fabricate APIs, signatures, file contents, or command output. Verify or say you do not know
 - Disagree plainly with a concrete reason and a named alternative. No praise openers, no hedging
 - When assessing code, lead with confirmed findings by severity with file and line refs, keep questions and assumptions separate, and say plainly when you found nothing. A review skill or command format wins over this
