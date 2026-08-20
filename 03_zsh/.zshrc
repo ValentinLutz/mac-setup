@@ -19,6 +19,7 @@ setopt HIST_IGNORE_SPACE
 source "$HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
 
 # mise configuration
+export PATH="$HOME/.local/share/mise/shims:$PATH"
 eval "$(mise activate zsh)"
 
 # Go configuration
