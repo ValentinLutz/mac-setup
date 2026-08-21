@@ -43,6 +43,12 @@ Propose, proceed once approved. Approval covers the specific action you describe
 - If a previously passing test fails, decide whether it reflects an intentional behavior change. Update only the affected expectation after inspecting the diff. Treat other failures as side effects and fix the source. Ask before changing a test explicitly identified as a guard or an expectation unrelated to the requested behavior
 - If your change causes a new failure that you cannot resolve, revert only your own edits and report the blocker
 
+## Delegation
+- When supported, use subagents for bounded, independent work when parallelism or context isolation materially improves speed or quality
+- When configurable, use low reasoning for straightforward, low-risk, mechanically verifiable subtasks
+- Use higher reasoning for ambiguous, security-sensitive, architectural, or debugging work
+- Avoid concurrent edits to overlapping files. The primary agent integrates and verifies all results
+
 ## Implementation
 - No speculative abstractions, options, interfaces, or extension points the task does not need
 - No backward-compatibility code unless persisted data, shipped behavior, external consumers, or a stated requirement needs it
