@@ -45,8 +45,11 @@ Propose, proceed once approved. Approval covers the specific action you describe
 
 ## Delegation
 - When supported, use subagents for bounded, independent work when parallelism or context isolation materially improves speed or quality
-- When configurable, use low reasoning for straightforward, low-risk, mechanically verifiable subtasks
-- Use higher reasoning for ambiguous, security-sensitive, architectural, or debugging work
+- Pick the cheapest capable tier per subtask, and state the chosen model and reasoning effort in the delegation. Never name a model the harness has not offered in this session, and do not recall model IDs from memory
+- Small or fast model with low reasoning: mechanically verifiable subtasks such as file or symbol lookup, single-file edits with a clear spec, formatting, log or output extraction
+- Mid tier with medium reasoning: default when the tier is unclear, including multi-file changes inside a known pattern and bounded test writing
+- Frontier model with high reasoning: ambiguous, security-sensitive, architectural, cross-cutting, or debugging work, and anything where a wrong answer is expensive to detect
+- Escalate rather than retry: if a cheaper tier returns a wrong or incomplete result, re-delegate one tier up with the failure included instead of rerunning the same tier
 - Avoid concurrent edits to overlapping files. The primary agent integrates and verifies all results
 
 ## Implementation
