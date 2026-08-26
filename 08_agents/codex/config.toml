@@ -1,0 +1,5 @@
+model_reasoning_effort = "high"
+model_verbosity = "low"
+
+[features]
+default_mode_request_user_input = true

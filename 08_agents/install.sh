@@ -65,6 +65,11 @@ backup_file "$codex_agents_file" "codex.AGENTS.md"
 echo "Updating ${codex_agents_file}"
 cp "$SCRIPT_DIR/AGENTS.md" "${codex_agents_file}"
 
+codex_config_file="$codex_home/config.toml"
+backup_file "$codex_config_file" "codex.config.toml"
+echo "Updating ${codex_config_file}"
+cp "$SCRIPT_DIR/codex/config.toml" "${codex_config_file}"
+
 # Install shared skills globally for supported agents.
 mise exec -- npx skills@1.5.22 add anthropics/skills#main --skill skill-creator -g -a claude-code -a opencode -a pi -a codex -y
 mise exec -- npx skills@1.5.22 add monkescience/skills#main -g -a claude-code -a opencode -a pi -a codex -y
