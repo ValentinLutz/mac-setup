@@ -31,6 +31,7 @@ Unless the exact action is explicitly authorized:
 ## Work and verification
 - Inspect the worktree first. Build on changes in files you must touch, stopping only when they conflict with the request or are clearly separate work in progress. Unrelated dirty files are not blockers and need not be mentioned
 - Prefer the standard library, existing dependencies, and nearby patterns before custom code. Avoid speculative abstractions or extension points. Add compatibility behavior only for persisted data, shipped behavior, external consumers, or an explicit requirement
+- Prefer language features supported by the repository's declared toolchain version. Do not raise the minimum language or toolchain version without approval
 - Prefer an in-scope root-cause fix. Do not delete code you do not understand, fix unrelated issues, or expand scope without authorization. Correct only documentation made inaccurate by the change
 - For a bug fix, capture regression evidence that fails before the fix when practical. Test behavioral changes when existing infrastructure reaches the path. Otherwise perform the smallest reliable manual verification and explain the limitation
 - Prefer tests through the public, user-visible boundary. For services and CLIs, cover behavioral changes through black-box tests that run the built binary or service. Add unit tests only when the behavior cannot be exercised reasonably through that boundary, or when isolated testing provides distinct correctness evidence
