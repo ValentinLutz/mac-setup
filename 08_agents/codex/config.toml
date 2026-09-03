@@ -1,4 +1,5 @@
-model_reasoning_effort = "high"
+model = "gpt-6-astra"
+model_reasoning_effort = "medium"
 model_verbosity = "low"
 
 [features]
