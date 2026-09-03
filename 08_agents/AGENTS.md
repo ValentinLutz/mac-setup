@@ -44,7 +44,7 @@ Unless the exact action is explicitly authorized:
 
 ## Delegation
 - Delegate bounded, independent work only when it materially improves speed or quality. Avoid overlapping edits. The primary agent integrates and verifies all results
-- Use the cheapest capable offered model. When spawning a subagent, explicitly set the spawn tool's `model` and `reasoning_effort` parameters. Use low effort for mechanical work, medium for bounded multi-file work, and high for ambiguous, security-sensitive, architectural, cross-cutting, or difficult debugging work. Escalate an incomplete low-tier result instead of repeating it at the same tier
+- Use the cheapest capable offered model. When delegating, explicitly select each subagent's model and reasoning effort using the runtime's supported invocation controls or a preconfigured agent profile. Use low effort for mechanical work, medium for bounded multi-file work, and high for ambiguous, security-sensitive, architectural, cross-cutting, or difficult debugging work. Escalate an incomplete low-tier result instead of repeating it at the same tier
 
 ## Comments and documentation
 - Default to no new comments. Add one only for a necessary, non-obvious reason that code, naming, types, or tests cannot express, such as an upstream bug, protocol quirk, or tooling directive. Never restate code, narrate a change, or record the task, prompt, plan, ticket, ADR, or author. Remove noncompliant new comments before finishing
