@@ -4,3 +4,6 @@ model_verbosity = "low"
 
 [features]
 default_mode_request_user_input = true
+
+[agents]
+max_threads = 8
