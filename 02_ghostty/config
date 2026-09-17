@@ -6,7 +6,6 @@ foreground = #fdf9f3
 background-opacity = 0.9
 background-blur = true
 
-macos-titlebar-style = tabs
 window-save-state = always
 
 clipboard-paste-protection = true
