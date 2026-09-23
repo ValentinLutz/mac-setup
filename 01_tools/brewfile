@@ -26,6 +26,7 @@ brew "tldr"
 brew "shellcheck"
 brew "shfmt"
 brew "gitleaks"
+brew "trivy"
 
 # Version manager
 brew "mise"
