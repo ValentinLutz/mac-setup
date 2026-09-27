@@ -103,16 +103,6 @@ Unless the exact action is explicitly authorized:
 - If your change causes an unresolved failure, revert only your own edits when that safely
   restores the baseline and does not defeat the request, then report the blocker
 
-## Delegation
-
-- Handle tasks locally when they take only a few tool calls. Delegate bounded, independent work
-  when parallel execution materially improves speed or quality. Avoid overlapping edits. The
-  primary agent integrates and verifies results
-- Use configured model and effort profiles when available. Otherwise, where supported, start with
-  low effort for mechanical work, medium for bounded implementation, and high for ambiguous,
-  security-sensitive, or difficult debugging work. Adjust based on results. Prefer the least
-  costly capable option when costs are known, and use defaults when controls are unavailable
-
 ## Comments and documentation
 
 - When editing this instruction file, state each rule once and wrap prose at 100 characters
