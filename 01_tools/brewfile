@@ -44,6 +44,9 @@ cask "session-manager-plugin"
 
 # Kubernetes
 brew "kubectl"
+brew "kubectl-cnpg"
+brew "kubectl-tree"
+brew "stern"
 brew "kubectx"
 brew "kustomize"
 brew "k9s"
