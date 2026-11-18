@@ -82,6 +82,8 @@ Unless the exact action is explicitly authorized:
   persisted data, shipped behavior, external consumers, or an explicit requirement
 - Prefer language features supported by the repository's declared toolchain version. Do not
   raise the minimum language or toolchain version without approval
+- Shell commands run in zsh. Keep one-off commands zsh-compatible. Put longer bash logic in a
+  script file with a `#!/usr/bin/env bash` shebang and run it directly
 - Prefer an in-scope root-cause fix. Do not delete code you do not understand
 - For a bug fix, capture regression evidence that fails before the fix when practical. Test
   behavioral changes when existing infrastructure reaches the path. Otherwise perform the
