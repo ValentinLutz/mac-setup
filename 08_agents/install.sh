@@ -78,5 +78,6 @@ echo "Updating ${antigravity_agents_file}"
 cp "$SCRIPT_DIR/AGENTS.md" "${antigravity_agents_file}"
 
 # Install shared skills globally for supported agents.
+mise exec -- npx -y skills@1.9.0 remove --all -g
 mise exec -- npx -y skills@1.9.0 add anthropics/skills#main --skill skill-creator -g -a claude-code -a opencode -a pi -a codex -a antigravity -y
 mise exec -- npx -y skills@1.9.0 add monkescience/skills#main -g -a claude-code -a opencode -a pi -a codex -a antigravity -y
