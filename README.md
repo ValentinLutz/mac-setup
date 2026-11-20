@@ -17,7 +17,7 @@ This project is organized into modular configuration sections, each handling a s
 | **05_git** | Configures Git with custom settings and commit hooks |
 | **06_ssh** | SSH key setup and configuration for secure connections |
 | **07_aws** | AWS CLI SSO profile configuration |
-| **08_agents** | Deploys the shared agent instruction file and skills to Claude Code, Codex, opencode, and pi |
+| **08_agents** | Deploys the shared agent instruction file and skills to Claude Code, Codex, opencode, pi, and Antigravity |
 
 ## Pre-requisites
 
@@ -122,10 +122,10 @@ Configures AWS CLI SSO profiles for the dev, prod, and root accounts.
 Deploys a single shared agent instruction file and common skills to multiple coding agents.
 
 **What it does:**
-- Copies `AGENTS.md` verbatim to Claude Code, Codex, opencode, and pi
-- Honors `CLAUDE_CONFIG_DIR`, `CODEX_HOME`, `XDG_CONFIG_HOME`, and `PI_CODING_AGENT_DIR`, with each agent's standard user directory as the fallback
-- Installs Claude Code `settings.json` and opencode `opencode.json`
-- Installs shared skills globally. Codex discovers their shared copies in `~/.agents/skills`
+- Copies `AGENTS.md` verbatim to Claude Code, Codex, opencode, pi, and Antigravity
+- Honors `CLAUDE_CONFIG_DIR`, `CODEX_HOME`, `XDG_CONFIG_HOME`, and `PI_CODING_AGENT_DIR`, with each agent's standard user directory as the fallback, plus `~/.gemini/config` for Antigravity
+- Installs Claude Code `settings.json`, opencode `opencode.json`, Codex `config.toml`, and Antigravity `skills.json`
+- Installs shared skills globally. Codex and Antigravity discover their shared copies in `~/.agents/skills`
 
 ## Backups
 
@@ -145,7 +145,7 @@ Each module contains configuration files that you can customize before installat
 - `05_git/.gitconfigs/monkescience/` and `05_git/.gitconfigs/valentinlutz/` - Per-directory identity overrides for repos under `~/Projects/monkescience/` and `~/Projects/valentinlutz/`
 - `06_ssh/config` - SSH client configuration
 - `07_aws/config` - AWS CLI SSO profile configuration
-- `08_agents/AGENTS.md` - Shared agent instructions deployed to Claude Code, Codex, opencode, and pi
+- `08_agents/AGENTS.md` - Shared agent instructions deployed to Claude Code, Codex, opencode, pi, and Antigravity
 
 ## Troubleshooting
 

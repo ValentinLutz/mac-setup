@@ -9,8 +9,9 @@ opencode_home="${XDG_CONFIG_HOME:-$HOME/.config}/opencode"
 claude_home="${CLAUDE_CONFIG_DIR:-$HOME/.claude}"
 pi_home="${PI_CODING_AGENT_DIR:-$HOME/.pi/agent}"
 codex_home="${CODEX_HOME:-$HOME/.codex}"
+antigravity_home="$HOME/.gemini/config"
 
-mkdir -p "$opencode_home" "$claude_home" "$pi_home" "$codex_home"
+mkdir -p "$opencode_home" "$claude_home" "$pi_home" "$codex_home" "$antigravity_home"
 
 backup_file() {
 	local source_file=$1
@@ -69,6 +70,18 @@ codex_config_file="$codex_home/config.toml"
 backup_file "$codex_config_file" "codex.config.toml"
 echo "Updating ${codex_config_file}"
 cp "$SCRIPT_DIR/codex/config.toml" "${codex_config_file}"
+
+# Update Antigravity AGENTS.md
+antigravity_agents_file="$antigravity_home/AGENTS.md"
+backup_file "$antigravity_agents_file" "antigravity.AGENTS.md"
+echo "Updating ${antigravity_agents_file}"
+cp "$SCRIPT_DIR/AGENTS.md" "${antigravity_agents_file}"
+
+# Update Antigravity skills.json
+antigravity_skills_file="$antigravity_home/skills.json"
+backup_file "$antigravity_skills_file" "antigravity.skills.json"
+echo "Updating ${antigravity_skills_file}"
+cp "$SCRIPT_DIR/antigravity/skills.json" "${antigravity_skills_file}"
 
 # Install shared skills globally for supported agents.
 mise exec -- npx skills@1.7.0 add anthropics/skills#main --skill skill-creator -g -a claude-code -a opencode -a pi -a codex -y
