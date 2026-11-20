@@ -124,8 +124,8 @@ Deploys a single shared agent instruction file and common skills to multiple cod
 **What it does:**
 - Copies `AGENTS.md` verbatim to Claude Code, Codex, opencode, pi, and Antigravity
 - Honors `CLAUDE_CONFIG_DIR`, `CODEX_HOME`, `XDG_CONFIG_HOME`, and `PI_CODING_AGENT_DIR`, with each agent's standard user directory as the fallback, plus `~/.gemini/config` for Antigravity
-- Installs Claude Code `settings.json`, opencode `opencode.json`, Codex `config.toml`, and Antigravity `skills.json`
-- Installs shared skills globally. Codex and Antigravity discover their shared copies in `~/.agents/skills`
+- Installs Claude Code `settings.json`, opencode `opencode.json`, and Codex `config.toml`
+- Installs shared skills globally for Claude Code, opencode, pi, Codex, and Antigravity
 
 ## Backups
 

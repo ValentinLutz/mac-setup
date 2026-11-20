@@ -77,12 +77,6 @@ backup_file "$antigravity_agents_file" "antigravity.AGENTS.md"
 echo "Updating ${antigravity_agents_file}"
 cp "$SCRIPT_DIR/AGENTS.md" "${antigravity_agents_file}"
 
-# Update Antigravity skills.json
-antigravity_skills_file="$antigravity_home/skills.json"
-backup_file "$antigravity_skills_file" "antigravity.skills.json"
-echo "Updating ${antigravity_skills_file}"
-cp "$SCRIPT_DIR/antigravity/skills.json" "${antigravity_skills_file}"
-
 # Install shared skills globally for supported agents.
-mise exec -- npx skills@1.7.0 add anthropics/skills#main --skill skill-creator -g -a claude-code -a opencode -a pi -a codex -y
-mise exec -- npx skills@1.7.0 add monkescience/skills#main -g -a claude-code -a opencode -a pi -a codex -y
+mise exec -- npx -y skills@1.9.0 add anthropics/skills#main --skill skill-creator -g -a claude-code -a opencode -a pi -a codex -a antigravity -y
+mise exec -- npx -y skills@1.9.0 add monkescience/skills#main -g -a claude-code -a opencode -a pi -a codex -a antigravity -y
